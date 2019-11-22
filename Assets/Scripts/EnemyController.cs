@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public Camera cam;
     public bool debugPathFinding;
     public GameObject targetObject;
+    public float shortestNavDistance;
 
     NavMeshAgent Agent;
     private GameObject[] playerObjects;
@@ -24,6 +25,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("YOOOOOOOOOOOOOOOOO");
         if (debugPathFinding)
         {
             if (Input.GetMouseButtonDown(0))
@@ -39,7 +41,18 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Agent.SetDestination(getClosestPlayerObject(playerObjects).transform.position);
+            GameObject closestPlayer = getClosestPlayerObject(playerObjects);
+            print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
+            if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
+            {
+                Agent.isStopped = false;
+                Agent.SetDestination(closestPlayer.transform.position);
+            }
+            else
+            {
+                Agent.isStopped = true;
+                Agent.ResetPath();
+            }
         }
     }
 
@@ -56,14 +69,50 @@ public class EnemyController : MonoBehaviour
         {
             if (distance < 0)
             {
-                distance = Vector3.Distance(player.transform.position, this.transform.position);
+                distance = GetDistanceNavMesh(this.transform.position, player.transform.position);
                 closest = player;
             } else
             {
-                if (Vector3.Distance(player.transform.position, this.transform.position) < distance)
+                float tempDistance = GetDistanceNavMesh(this.transform.position, player.transform.position);
+                if (tempDistance < distance)
+                {
                     closest = player;
+                    distance = tempDistance;
+                }
             }
         }
         return closest;
+    }
+
+    public static bool GetPath(NavMeshPath path, Vector3 fromPos, Vector3 toPos)
+    {
+        path.ClearCorners();
+        if (NavMesh.CalculatePath(fromPos, toPos, NavMesh.AllAreas, path) == false )
+            return false;
+        return true;
+    }
+
+    public static float GetPathLength(NavMeshPath path)
+    {
+        float lng = 0.0f;
+        if (path.status != NavMeshPathStatus.PathInvalid)
+        {
+            for (int i = 1; i < path.corners.Length; ++i)
+            {
+                lng += Vector3.Distance(path.corners[i-1], path.corners[i]);
+            }
+        }
+        return lng;
+    }
+
+    private static float GetDistanceNavMesh(Vector3 start, Vector3 end)
+    {
+        float distance = -1;
+        NavMeshPath path = new NavMeshPath();
+        if (GetPath(path, start, end))
+        {
+            distance = GetPathLength(path);
+        }
+        return distance;
     }
 }
