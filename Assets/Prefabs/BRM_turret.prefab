@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2891124437724917200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980561666367945114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed81c64083924848a463168f17831c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8578598339586322816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980561666367945114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed81c64083924848a463168f17831c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5154747682947361081
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,14 +49,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5154747682947361081}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -5.2811046, y: 0.769, z: -1.352489}
   m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 2235558737724509065}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!33 &903262903090651420
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -257,6 +281,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 115e595512ce2b34bb9c2d1da821f433, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6ffbc07c5daca4896ce5e0beefd612, type: 3}
+--- !u!1 &2980561666367945114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0c6ffbc07c5daca4896ce5e0beefd612,
+    type: 3}
+  m_PrefabInstance: {fileID: 6520359165390397587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2235558737724509065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0c6ffbc07c5daca4896ce5e0beefd612,
