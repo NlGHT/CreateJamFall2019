@@ -49,9 +49,9 @@ public class EnemyController : MonoBehaviour
         else
         {
             closestPlayer = getClosestPlayerObject(playerObjects);
-            print("Closest player: " + closestPlayer);
-            print("Navmesh distance: " + (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
-            print("Shortest nav distance: " + shortestNavDistance);
+            //print("Closest player: " + closestPlayer);
+            //print("Navmesh distance: " + (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
+            //print("Shortest nav distance: " + shortestNavDistance);
             if (Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)) > shortestNavDistance)
             {
                 print("Heyyyyyyyyyyyyyyy");
