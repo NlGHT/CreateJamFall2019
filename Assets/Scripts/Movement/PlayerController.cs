@@ -6,17 +6,24 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     //X and Y Movement
-    [SerializeField] float baseSpeed;
-    [SerializeField] float boostSpeed;
     float speed;
-
     float angle;
     Vector2 turn;
     Vector2 move;
     float t;
-    
-    //Jumping
-    [SerializeField] float force;
+
+    //Player Stats
+        //HP and Energy
+        [SerializeField] float hp;
+        [SerializeField] float energy;
+
+        //Movement
+        [SerializeField] float baseSpeed;
+        [SerializeField] float boostSpeed;
+        [SerializeField] float movementModifier;
+
+        //Jumping
+        [SerializeField] float force;
     
     //Control objects
     [SerializeField] Rigidbody rb;
@@ -25,10 +32,11 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        gameObject.tag = "Player";
         controls = new PlayerControls();
         rb = GetComponent<Rigidbody>();
         //Right Thumbstick
-        speed = baseSpeed;
+        speed = baseSpeed * movementModifier;
         controls.Movement.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Movement.Move.canceled += ctx => move = Vector2.zero;
 
@@ -54,13 +62,20 @@ public class PlayerController : MonoBehaviour
     {
         if (isBoosting)
         {
-            speed = boostSpeed;
+            speed = boostSpeed * movementModifier;
         }
         if (!isBoosting)
         {
-            speed = baseSpeed;
+            speed = baseSpeed * movementModifier;
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+
+
+    }
+
     void Update()
     {
         Vector3 m = new Vector3(move.x, 0, move.y) * Time.deltaTime;

@@ -135,7 +135,7 @@ public class EnemyController : MonoBehaviour
         thePowerUp.transform.position = powerUpSpawn.transform.position;
         Destroy(gameObject);
     }
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)

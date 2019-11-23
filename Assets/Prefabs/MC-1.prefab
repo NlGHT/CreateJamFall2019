@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 245145311158988035}
   m_Layer: 0
   m_Name: MC-1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,9 +457,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfae9db9d222de4b8734ab33b3862fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
+  energy: 100
   baseSpeed: 3
   boostSpeed: 10
-  force: 250
+  movementModifier: 1
+  force: 100
   rb: {fileID: 245145311158988032}
 --- !u!114 &245145311158988035
 MonoBehaviour:
