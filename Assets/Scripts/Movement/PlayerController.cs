@@ -72,8 +72,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-
+        hp -= damage;
+        print(hp);
+        if (hp <= 0)
+        {
+            death();
+        }
     }
 
     void Update()
@@ -95,5 +99,10 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         controls.Movement.Disable();
+    }
+
+    void death()
+    {
+        Destroy(gameObject);
     }
 }
