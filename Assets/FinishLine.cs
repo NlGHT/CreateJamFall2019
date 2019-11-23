@@ -5,18 +5,11 @@ using UnityEngine;
 public class FinishLine : MonoBehaviour
 {
 
+    public int playerCounter = 0;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public int getPlayerCount()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return playerCounter;
     }
 
 
@@ -24,8 +17,15 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-
+            playerCounter += 1;
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerCounter -= 1;
+        }
+    }
 }
