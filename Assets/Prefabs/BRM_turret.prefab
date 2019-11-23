@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: 8201633728604052266}
   - component: {fileID: 903262903090651420}
   - component: {fileID: 6896561033025576421}
+  - component: {fileID: 2818399837459884718}
   m_Layer: 0
   m_Name: BRM_turret
   m_TagString: Untagged
@@ -103,6 +104,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2818399837459884718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154747682947361081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc97c136ad8d8d0419d0dd465647bb45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Auto-Henrietta
 --- !u!1001 &3536311066911960050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,11 +213,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8201633728604052266}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0c6ffbc07c5daca4896ce5e0beefd612,
-        type: 3}
-      propertyPath: m_Name
-      value: BRM_turret_mantlet
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c6ffbc07c5daca4896ce5e0beefd612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -273,6 +282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0c6ffbc07c5daca4896ce5e0beefd612,
+        type: 3}
+      propertyPath: m_Name
+      value: BRM_turret_mantlet
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0c6ffbc07c5daca4896ce5e0beefd612,
         type: 3}

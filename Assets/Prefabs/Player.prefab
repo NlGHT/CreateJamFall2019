@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7498698138350115131}
   - component: {fileID: 3711243636239629644}
   - component: {fileID: -7067816637231111853}
+  - component: {fileID: 4017448404290604197}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -130,3 +131,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &4017448404290604197
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498698138350115130}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

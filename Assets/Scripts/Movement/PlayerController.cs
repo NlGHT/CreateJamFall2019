@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
     float t;
 
+
+    public int points = 0;
+
     //Player Stats
         [SerializeField] public int playerNumber;
 
         //HP and Energy
         [SerializeField] public float hp;
-        [SerializeField] float energy;
+        [SerializeField] public float energy;
         [SerializeField] public float damage;
 
         //Movement

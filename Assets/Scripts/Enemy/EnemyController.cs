@@ -18,15 +18,15 @@ public class EnemyController : MonoBehaviour
     public float health = 100;
 
     NavMeshAgent Agent;
-    private GameObject[] playerObjects;
+    public GameObject[] playerObjects;
+
+    public GameObject closestPlayer;
 
     void Start()
     {
-        shortestNavDistance = 1.1f;
-
         Agent = GetComponent<NavMeshAgent>();
         playerObjects = getPlayerObjects();
-        GameObject closestPlayer = getClosestPlayerObject(playerObjects);
+        closestPlayer = getClosestPlayerObject(playerObjects);
         Agent.SetDestination(closestPlayer.transform.position);
     }
 
@@ -48,12 +48,13 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            GameObject closestPlayer = getClosestPlayerObject(playerObjects);
-            //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
-            //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) - shortestNavDistance);
-
-            if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
+            closestPlayer = getClosestPlayerObject(playerObjects);
+            //print("Closest player: " + closestPlayer);
+            //print("Navmesh distance: " + (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
+            //print("Shortest nav distance: " + shortestNavDistance);
+            if (Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)) > shortestNavDistance)
             {
+                //print("Heyyyyyyyyyyyyyyy");
                 Agent.SetDestination(closestPlayer.transform.position);
             }
             else
@@ -70,7 +71,7 @@ public class EnemyController : MonoBehaviour
         return GameObject.FindGameObjectsWithTag("Player");
     }
 
-    private GameObject getClosestPlayerObject(GameObject[] playerObjects)
+    public GameObject getClosestPlayerObject(GameObject[] playerObjects)
     {
         float distance = -1;
         GameObject closest = playerObjects[0];

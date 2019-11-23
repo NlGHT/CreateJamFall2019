@@ -87,7 +87,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4258622346365762966}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 04a5fe4d64832eb4c80b7598877868c3, type: 2}
   m_Animations:
@@ -151,11 +151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5203987862795319794}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d72e52eefc24cfe48a84f762d39acacb,
-        type: 3}
-      propertyPath: m_Name
-      value: Spiker_spike
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d72e52eefc24cfe48a84f762d39acacb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,6 +220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 13.070147
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d72e52eefc24cfe48a84f762d39acacb,
+        type: 3}
+      propertyPath: m_Name
+      value: Spiker_spike
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: d72e52eefc24cfe48a84f762d39acacb,
         type: 3}

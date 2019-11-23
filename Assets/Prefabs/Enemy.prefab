@@ -9,16 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8175162139340869785}
-  - component: {fileID: 8175162139340869784}
   - component: {fileID: 8175162139340869787}
   - component: {fileID: 8175162139340869786}
   - component: {fileID: 8175162139340869789}
   - component: {fileID: 8175162139340869788}
-<<<<<<< HEAD
-  - component: {fileID: 8175162139340869798}
   - component: {fileID: 2871647052887535868}
-=======
->>>>>>> 1d5f4f727ba00c5631e0358e0cb6008fa73c3c74
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -40,14 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8175162139340869784
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8175162139340869791}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &8175162139340869787
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -94,10 +81,10 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8175162139340869791}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 1.14
+  m_Height: 4
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!195 &8175162139340869789
@@ -138,27 +125,13 @@ MonoBehaviour:
   debugPathFinding: 0
   targetObject: {fileID: 0}
   shortestNavDistance: 0
-<<<<<<< HEAD
-  powerUpObject: {fileID: 0}
+  partPowerUp: {fileID: 0}
+  towerPowerUp: {fileID: 0}
   hitpoints: 0
   damage: 0
   health: 100
---- !u!208 &8175162139340869798
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8175162139340869791}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  playerObjects: []
+  closestPlayer: {fileID: 0}
 --- !u!54 &2871647052887535868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,10 +148,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
-=======
-  powerUpObject: {fileID: 7418101630985337509, guid: a8e1fc1852ca6a046a5736d44c22ff8a,
-    type: 3}
-  hitpoints: 0
-  damage: 0
-  health: 100
->>>>>>> 1d5f4f727ba00c5631e0358e0cb6008fa73c3c74
