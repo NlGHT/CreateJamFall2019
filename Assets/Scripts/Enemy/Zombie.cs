@@ -5,45 +5,66 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     public float damagePerTime;
+    public float timePerDamage;
 
+    private float timeCountdown;
     private GameObject playerTouching;
+    private PlayerController pc = null;
     private bool touchingPlayer;
     // Start is called before the first frame update
     void Start()
     {
-        damagePerTime = 10;
+        timePerDamage = 1;
+        timeCountdown = timePerDamage;
+        damagePerTime = 20;
         touchingPlayer = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (touchingPlayer)
+        //print("... Update Loop ...");
+        if (touchingPlayer == true)
         {
-            PlayerController pc = playerTouching.GetComponent<PlayerController>();
-            pc.TakeDamage(damagePerTime);
+            timeCountdown -= Time.deltaTime;
+
+            if (timeCountdown <= 0)
+            {
+                pc.TakeDamage(damagePerTime);
+                timeCountdown = timePerDamage;
+                //print("Hurting player");
+            }
+        }
+        else
+        {
+            timeCountdown = timePerDamage;
         }
     }
 
     private void OnTriggerEnter(Collider other) {
-        GameObject otherGO = other.GetComponent<GameObject>();
-        if (otherGO.layer == 9)
+        GameObject otherGO = other.gameObject;
+        print(otherGO);
+        if (otherGO.tag == "Player")
         {
             //Player
             print("Touching player");
-            touchingPlayer = true;
             playerTouching = otherGO;
+            pc = playerTouching.GetComponent<PlayerController>();
+            touchingPlayer = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
+<<<<<<< HEAD
         print(other);
+=======
+        print("Left trigger");
+>>>>>>> Enemies will do damage over time to player and kill them
         GameObject otherGO = other.GetComponent<GameObject>();
         if (otherGO.layer == 9)
         {
             //Player
-            print("Touching player");
             touchingPlayer = false;
             playerTouching = null;
         }

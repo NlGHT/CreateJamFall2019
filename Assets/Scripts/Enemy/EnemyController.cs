@@ -48,8 +48,7 @@ public class EnemyController : MonoBehaviour
         else
         {
             GameObject closestPlayer = getClosestPlayerObject(playerObjects);
-            //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
-            print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) - shortestNavDistance);
+            //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) - shortestNavDistance);
 
             if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
             {
@@ -57,9 +56,9 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                print("Enemy hitting target");
+                //print("Enemy hitting target");
                 Agent.ResetPath();
-                //Agent.SetDestination(this.transform.position);
+                Agent.SetDestination(this.transform.position);
             }
         }
     }
