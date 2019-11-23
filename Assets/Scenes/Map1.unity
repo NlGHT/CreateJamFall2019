@@ -152,17 +152,17 @@ PrefabInstance:
     - target: {fileID: 6749403774116096958, guid: d9fd5873d4860f346b148575f0cede2c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6749403774116096958, guid: d9fd5873d4860f346b148575f0cede2c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -662
+      value: 17.68
       objectReference: {fileID: 0}
     - target: {fileID: 6749403774116096958, guid: d9fd5873d4860f346b148575f0cede2c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 434
+      value: 17.48
       objectReference: {fileID: 0}
     - target: {fileID: 6749403774116096958, guid: d9fd5873d4860f346b148575f0cede2c,
         type: 3}
@@ -1339,6 +1339,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2242138308239050875, guid: 4afb450df7f6f774fbb27b1537e88602,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8728044000495181488, guid: 4afb450df7f6f774fbb27b1537e88602,
         type: 3}
       propertyPath: StarterTurret
@@ -1350,11 +1355,6 @@ PrefabInstance:
       propertyPath: TurretOrigin
       value: 
       objectReference: {fileID: 1938540983}
-    - target: {fileID: 2242138308239050875, guid: 4afb450df7f6f774fbb27b1537e88602,
-        type: 3}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4afb450df7f6f774fbb27b1537e88602, type: 3}
 --- !u!1 &931769899
