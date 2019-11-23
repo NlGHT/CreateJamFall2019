@@ -56,11 +56,15 @@ public class UIManager : MonoBehaviour
         stam2Text = stam2.GetComponent<Text>();
 
 
-        pc1 = player1.GetComponent<PlayerController>();
-        pc2 = player2.GetComponent<PlayerController>();
+        if (player1)
+        {
+            pc1 = player1.GetComponent<PlayerController>();
+        }
 
-        
-
+        if (player2)
+        {
+            pc2 = player2.GetComponent<PlayerController>();
+        }
     }
 
     // Update is called once per frame
