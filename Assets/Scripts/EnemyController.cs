@@ -15,12 +15,15 @@ public class EnemyController : MonoBehaviour
     public bool isDead;
     public int hitpoints;
     public int damage;
+    public float health = 100;
 
     NavMeshAgent Agent;
     private GameObject[] playerObjects;
 
     void Start()
     {
+        shortestNavDistance = 1.1f;
+
         Agent = GetComponent<NavMeshAgent>();
         playerObjects = getPlayerObjects();
         GameObject closestPlayer = getClosestPlayerObject(playerObjects);
@@ -46,16 +49,18 @@ public class EnemyController : MonoBehaviour
         else
         {
             GameObject closestPlayer = getClosestPlayerObject(playerObjects);
-            print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
+            //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
+            print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) - shortestNavDistance);
+
             if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
             {
-                Agent.isStopped = false;
                 Agent.SetDestination(closestPlayer.transform.position);
             }
             else
             {
-                Agent.isStopped = true;
+                print("Enemy hitting target");
                 Agent.ResetPath();
+                //Agent.SetDestination(this.transform.position);
             }
         }
         if (isDead)
@@ -123,13 +128,16 @@ public class EnemyController : MonoBehaviour
         }
         return distance;
     }
-
     private void death()
     {
         Transform powerUpSpawn = this.transform;
         GameObject thePowerUp = Instantiate(powerUpObject) as GameObject;
         thePowerUp.transform.position = powerUpSpawn.transform.position;
         Destroy(gameObject);
+    }
+    void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 }
 
