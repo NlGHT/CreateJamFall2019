@@ -25,8 +25,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9bf5145eb61a76292128ec79d9575d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchRadius: 8
-  speedIncreaseSight: 200
+  searchRadius: 30
+  speedIncreaseSight: 100
 --- !u!1001 &8887680551223803858
 PrefabInstance:
   m_ObjectHideFlags: 0
