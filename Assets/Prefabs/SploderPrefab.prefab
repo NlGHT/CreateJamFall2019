@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9bf5145eb61a76292128ec79d9575d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchRadius: 8
+  searchRadius: 20
   speedIncreaseSight: 200
 --- !u!1001 &3342303301241106014
 PrefabInstance:
@@ -38,6 +38,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SploderPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871647052887535868, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869786, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869785, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
@@ -94,11 +104,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2871647052887535868, guid: ce41fb89bfae7aafaa8e73761c2babd2,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce41fb89bfae7aafaa8e73761c2babd2, type: 3}
 --- !u!1 &6851731511825530561 stripped
@@ -133,7 +138,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0aa811448c2a35345a5b1b04e66bc8c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0aa811448c2a35345a5b1b04e66bc8c1,
         type: 3}
