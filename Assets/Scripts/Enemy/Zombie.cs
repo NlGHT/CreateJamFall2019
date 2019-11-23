@@ -30,9 +30,18 @@ public class Zombie : MonoBehaviour
 
             if (timeCountdown <= 0)
             {
-                pc.TakeDamage(damagePerTime);
-                timeCountdown = timePerDamage;
-                //print("Hurting player");
+                if (playerTouching != null)
+                {
+                    pc.TakeDamage(damagePerTime);
+                    timeCountdown = timePerDamage;
+                    //print("Hurting player");
+                }
+                else
+                {
+                    playerTouching = null;
+                    pc = null;
+                    timeCountdown = timePerDamage;
+                }
             }
         }
         else
@@ -44,13 +53,20 @@ public class Zombie : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         GameObject otherGO = other.gameObject;
         print(otherGO);
-        if (otherGO.tag == "Player")
+        if (otherGO != null)
         {
-            //Player
-            print("Touching player");
-            playerTouching = otherGO;
-            pc = playerTouching.GetComponent<PlayerController>();
-            touchingPlayer = true;
+            if (otherGO.tag == "Player")
+            {
+                //Player
+                print("Touching player");
+                playerTouching = otherGO;
+                pc = playerTouching.GetComponent<PlayerController>();
+                touchingPlayer = true;
+            }
+        }
+        else
+        {
+            touchingPlayer = false;
         }
     }
 
