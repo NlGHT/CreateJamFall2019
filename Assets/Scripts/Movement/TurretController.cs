@@ -8,7 +8,9 @@ public class TurretController : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] GameObject cannonPoint;
     [SerializeField] GameObject projectile;
+    [SerializeField] GameObject turret;
     [SerializeField] float rateOfFire;
+    [SerializeField] int playerNumber;
 
     bool timePassed;
     float timeBetweenShots;
@@ -20,8 +22,30 @@ public class TurretController : MonoBehaviour
 
     void Awake()
     {
-
+        playerNumber = GetComponentInParent<PlayerController>().playerNumber;
         controls = new PlayerControls();
+
+        if (playerNumber == 1)
+        {
+            //Left Thumbstick
+            controls.Movement_p1.Aim.performed += ctx => rotate = ctx.ReadValue<Vector2>();
+
+            //Right Trigger
+            controls.Movement_p1.Shoot.performed += ctx => isShooting = true;
+            controls.Movement_p1.Shoot.canceled += ctx => isShooting = false;
+
+        }
+        if (playerNumber == 2)
+        {
+            //Left Thumbstick
+            controls.Movement_p2.Aim.performed += ctx => rotate = ctx.ReadValue<Vector2>();
+
+            //Right Trigger
+            controls.Movement_p2.Shoot.performed += ctx => isShooting = true;
+            controls.Movement_p2.Shoot.canceled += ctx => isShooting = false;
+
+        }
+
 
         //Left Thumbstick
         controls.Movement_p1.Aim.performed += ctx => rotate = ctx.ReadValue<Vector2>();
@@ -71,11 +95,26 @@ public class TurretController : MonoBehaviour
 
     void OnEnable()
     {
-        controls.Movement_p1.Enable();
+        if (playerNumber == 1)
+        {
+            controls.Movement_p1.Enable();
+        }
+        if (playerNumber == 2)
+        {
+            controls.Movement_p2.Enable();
+        }
+
     }
 
     void OnDisable()
     {
-        controls.Movement_p1.Disable();
+        if (playerNumber == 1)
+        {
+            controls.Movement_p1.Disable();
+        }
+        if (playerNumber == 2)
+        {
+            controls.Movement_p2.Disable();
+        }
     }
 }

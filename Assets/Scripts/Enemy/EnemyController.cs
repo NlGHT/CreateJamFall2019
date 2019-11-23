@@ -49,10 +49,7 @@ public class EnemyController : MonoBehaviour
         else
         {
             GameObject closestPlayer = getClosestPlayerObject(playerObjects);
-<<<<<<< HEAD
             //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
-=======
->>>>>>> 1d5f4f727ba00c5631e0358e0cb6008fa73c3c74
             //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) - shortestNavDistance);
 
             if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
