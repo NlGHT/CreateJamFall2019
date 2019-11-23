@@ -27,6 +27,8 @@ public class PartUp : MonoBehaviour
             PlayerController playerScript = other.GetComponent<PlayerController>();
             playerScript.damage = playerScript.damage + damageIncrease;
             playerScript.hp = playerScript.hp + hpIncrease;
+            playerScript.points += 1;
+
             //print("Damage is; " + playerScript.damage + " and hp is; " + playerScript.hp);
             Destroy(gameObject);
         }

@@ -12,7 +12,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!114 &841001203150461067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,17 +42,17 @@ PrefabInstance:
     - target: {fileID: 955593995650404229, guid: 994ef0273d0092b48852470466ee2839,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2761879
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 955593995650404229, guid: 994ef0273d0092b48852470466ee2839,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 955593995650404229, guid: 994ef0273d0092b48852470466ee2839,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.2835579
+      value: -0.284
       objectReference: {fileID: 0}
     - target: {fileID: 955593995650404229, guid: 994ef0273d0092b48852470466ee2839,
         type: 3}
@@ -109,6 +109,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.605425
       objectReference: {fileID: 0}
+    - target: {fileID: 5203987862464537754, guid: 994ef0273d0092b48852470466ee2839,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 994ef0273d0092b48852470466ee2839, type: 3}
 --- !u!1001 &8461836307248170666
@@ -131,17 +136,17 @@ PrefabInstance:
     - target: {fileID: 8175162139340869785, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869785, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.94
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869785, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869785, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
@@ -188,6 +193,16 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869786, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869786, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869788, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: shortestNavDistance
@@ -197,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Drag
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869789, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8175162139340869787, guid: ce41fb89bfae7aafaa8e73761c2babd2, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2988718847634605496}
   - component: {fileID: 6062136795037548430}
   - component: {fileID: 512706810281608055}
+  - component: {fileID: 8625759361404187870}
   m_Layer: 0
   m_Name: turret_starter
   m_TagString: Untagged
@@ -80,6 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8625759361404187870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243168836676253611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc97c136ad8d8d0419d0dd465647bb45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Starter turret
 --- !u!1001 &7782426015325881138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,11 +101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2988718847634605496}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 96768a0c2cdfd5346888d6f9a43f2bf0,
-        type: 3}
-      propertyPath: m_Name
-      value: turret_starter_mantlet
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 96768a0c2cdfd5346888d6f9a43f2bf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -162,6 +171,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 96768a0c2cdfd5346888d6f9a43f2bf0,
+        type: 3}
+      propertyPath: m_Name
+      value: turret_starter_mantlet
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 96768a0c2cdfd5346888d6f9a43f2bf0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -182,11 +196,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2988718847634605496}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: cfa12456fa32cd146a911fd82f67517f,
-        type: 3}
-      propertyPath: m_Name
-      value: turret_starter_barrel
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cfa12456fa32cd146a911fd82f67517f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,6 +265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cfa12456fa32cd146a911fd82f67517f,
+        type: 3}
+      propertyPath: m_Name
+      value: turret_starter_barrel
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: cfa12456fa32cd146a911fd82f67517f,
         type: 3}
