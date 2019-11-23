@@ -10,14 +10,25 @@ public class TurretController : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject turret;
     [SerializeField] float rateOfFire;
-    [SerializeField] int playerNumber;
+    [SerializeField] public int playerNumber;
 
     [SerializeField] GameObject TurretOrigin;
+
     [SerializeField] GameObject StarterTurret;
+    [SerializeField] GameObject StarterProjectile;
+    [SerializeField] float starterRateOfFire;
+
     [SerializeField] GameObject LilTimmy;
+    [SerializeField] GameObject LilTimmyProjectile;
+    [SerializeField] float LilTimmyRateOfFire;
+
     [SerializeField] GameObject MachineGunTurret;
+    [SerializeField] GameObject MachineGunProjectile;
+    [SerializeField] float MachineGunRateOfFire;
+
     [SerializeField] GameObject ActiveTurret;
 
+    [SerializeField] int iActiveTurret;
     bool timePassed;
     float timeBetweenShots;
     bool hasShot;
@@ -30,18 +41,49 @@ public class TurretController : MonoBehaviour
     {
         if(turretID == 0)
         {
+            iActiveTurret = 0;
             print("Changing Turret");
-            if(ActiveTurret) Destroy(ActiveTurret);
+            if(ActiveTurret != null) Destroy(ActiveTurret);
+            projectile = StarterProjectile;
+            rateOfFire = starterRateOfFire;
+
             ActiveTurret = Instantiate(StarterTurret);
-            ActiveTurret.transform.parent = TurretOrigin.transform;
-            ActiveTurret.transform.position = TurretOrigin.transform.position;
-            ActiveTurret.transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle-180));
+            ActiveTurret.transform.parent = transform;
+            ActiveTurret.transform.position = transform.position;
+            cannonPoint = GameObject.FindGameObjectWithTag("StarterPP");
+
+        }
+        if (turretID == 1)
+        {
+            iActiveTurret = 1;
+            print("Changing Turret");
+            if (ActiveTurret != null) Destroy(ActiveTurret);
+            projectile = LilTimmyProjectile;
+            rateOfFire = LilTimmyRateOfFire;
+
+            ActiveTurret = Instantiate(LilTimmy);
+            ActiveTurret.transform.parent = transform;
+            ActiveTurret.transform.position = transform.position;
+            cannonPoint = GameObject.FindGameObjectWithTag("LilTimmyPP");
+
+        }
+        if (turretID == 2)
+        {
+            iActiveTurret = 2;
+            print("Changing Turret");
+            if (ActiveTurret != null) Destroy(ActiveTurret);
+            projectile = MachineGunProjectile;
+            rateOfFire = MachineGunRateOfFire;
+
+            ActiveTurret = Instantiate(MachineGunTurret);
+            ActiveTurret.transform.parent = transform;
+            ActiveTurret.transform.position = transform.position;
+            cannonPoint = GameObject.FindGameObjectWithTag("MGPP");
         }
     }
 
     void Awake()
     {
-        ChangeTurret(0);
         playerNumber = GetComponentInParent<PlayerController>().playerNumber;
         controls = new PlayerControls();
 
@@ -53,6 +95,8 @@ public class TurretController : MonoBehaviour
             //Right Trigger
             controls.Movement_p1.Shoot.performed += ctx => isShooting = true;
             controls.Movement_p1.Shoot.canceled += ctx => isShooting = false;
+
+            controls.Movement_p1.ChangeGun.performed += ctx => ChangeTurret(2);
 
         }
         if (playerNumber == 2)
@@ -66,19 +110,19 @@ public class TurretController : MonoBehaviour
 
         }
 
-
-        //Left Thumbstick
-        controls.Movement_p1.Aim.performed += ctx => rotate = ctx.ReadValue<Vector2>();
-
-        //Right Trigger
-        controls.Movement_p1.Shoot.performed += ctx => isShooting = true;
-        controls.Movement_p1.Shoot.canceled += ctx => isShooting = false;
     }
-
+    void iChangeTurret()
+    {
+        if (iActiveTurret == 0) ChangeTurret(1);
+        if (iActiveTurret == 1) ChangeTurret(2);
+        if (iActiveTurret == 2) ChangeTurret(0);
+    }
     void Update()
     {
-        angle = Mathf.Atan2(rotate.y, rotate.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(90, 0 , angle-90));
+        angle = Mathf.Atan2(-rotate.y, -rotate.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
+
+
 
         if (!hasShot)
         {
@@ -109,12 +153,13 @@ public class TurretController : MonoBehaviour
     {
         GameObject p = Instantiate(projectile) as GameObject;
         p.transform.position = cannonPoint.transform.position;
-        p.transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle+180));
+        p.transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle));
         hasShot = true;
     }
 
     void OnEnable()
     {
+        ChangeTurret(0);
         if (playerNumber == 1)
         {
             controls.Movement_p1.Enable();
