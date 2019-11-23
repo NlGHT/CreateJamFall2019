@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerControls controls;
 
+    private bool isDead;
+
+    private Vector3 deathLocation;
 
     void Awake()
     {
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
         //Left Trigger
         controls.Movement.Boost.performed += ctx => Boost(true);
         controls.Movement.Boost.canceled += ctx => Boost(false);
+        isDead = false;
+        deathLocation = new Vector3(8000, 8000, 8000);
     }
 
     void Jump()
@@ -70,7 +75,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public float TakeDamage(float damage)
     {
         hp -= damage;
         print(hp);
@@ -78,6 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             death();
         }
+        return hp;
     }
 
     void Update()
@@ -103,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
     void death()
     {
-        Destroy(gameObject);
+        isDead = true;
+        this.transform.position = deathLocation;
     }
 }
