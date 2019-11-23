@@ -12,6 +12,12 @@ public class TurretController : MonoBehaviour
     [SerializeField] float rateOfFire;
     [SerializeField] int playerNumber;
 
+    [SerializeField] GameObject TurretOrigin;
+    [SerializeField] GameObject StarterTurret;
+    [SerializeField] GameObject LilTimmy;
+    [SerializeField] GameObject MachineGunTurret;
+    [SerializeField] GameObject ActiveTurret;
+
     bool timePassed;
     float timeBetweenShots;
     bool hasShot;
@@ -20,8 +26,22 @@ public class TurretController : MonoBehaviour
     float angle;
     IEnumerator _shoot;
 
+    void ChangeTurret(int turretID)
+    {
+        if(turretID == 0)
+        {
+            print("Changing Turret");
+            if(ActiveTurret) Destroy(ActiveTurret);
+            ActiveTurret = Instantiate(StarterTurret);
+            ActiveTurret.transform.parent = TurretOrigin.transform;
+            ActiveTurret.transform.position = TurretOrigin.transform.position;
+            ActiveTurret.transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle-180));
+        }
+    }
+
     void Awake()
     {
+        ChangeTurret(0);
         playerNumber = GetComponentInParent<PlayerController>().playerNumber;
         controls = new PlayerControls();
 
