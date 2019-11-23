@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1047006237534536880}
   - component: {fileID: 1047006237534536881}
   - component: {fileID: 1047006237534536882}
+  - component: {fileID: 1033933851}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -45,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce1f45c42ada004e8c93732b7605d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1
-  radius: 1
+  force: 100
+  radius: 10
   collidingBodies: []
 --- !u!198 &1047006237534536881
 ParticleSystem:
@@ -4827,3 +4828,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &1033933851
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047006237534536883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}

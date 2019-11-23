@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     public bool debugPathFinding;
     public GameObject targetObject;
     public float shortestNavDistance;
-    public GameObject powerUpObject;
+    public GameObject partPowerUp;
+    public GameObject towerPowerUp;
 
     public int hitpoints;
     public int damage;
@@ -48,7 +49,10 @@ public class EnemyController : MonoBehaviour
         else
         {
             GameObject closestPlayer = getClosestPlayerObject(playerObjects);
+<<<<<<< HEAD
             //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position));
+=======
+>>>>>>> 1d5f4f727ba00c5631e0358e0cb6008fa73c3c74
             //print(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) - shortestNavDistance);
 
             if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
@@ -59,7 +63,7 @@ public class EnemyController : MonoBehaviour
             {
                 //print("Enemy hitting target");
                 Agent.ResetPath();
-                //Agent.SetDestination(this.transform.position);
+                Agent.SetDestination(this.transform.position);
             }
         }
     }
@@ -123,13 +127,25 @@ public class EnemyController : MonoBehaviour
         }
         return distance;
     }
+
     private void death()
     {
         Transform powerUpSpawn = this.transform;
-        GameObject thePowerUp = Instantiate(powerUpObject) as GameObject;
-        thePowerUp.transform.position = powerUpSpawn.transform.position;
-        Destroy(gameObject);
+        int powerUpStyle = Random.Range(1, 6);
+        if(powerUpStyle <= 5)
+        {
+            GameObject thePowerUp = Instantiate(partPowerUp) as GameObject;
+            thePowerUp.transform.position = powerUpSpawn.transform.position;
+            Destroy(gameObject);
+        }
+        else if(powerUpStyle == 6)
+        {
+            GameObject thePowerUp = Instantiate(towerPowerUp) as GameObject;
+            thePowerUp.transform.position = powerUpSpawn.transform.position;
+            Destroy(gameObject);
+        }
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7498698138350115130
+--- !u!1 &4747955141196533199
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7498698138350115134}
-  - component: {fileID: 7498698138350115133}
-  - component: {fileID: 7498698138350115132}
-  - component: {fileID: 7498698138350115131}
-  - component: {fileID: 3711243636239629644}
-  - component: {fileID: -7067816637231111853}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Player
+  - component: {fileID: 8628749360342286300}
+  - component: {fileID: 784892338678498794}
+  - component: {fileID: 6474194974892128531}
+  - component: {fileID: 7778941734511386484}
+  - component: {fileID: 2676833516766063759}
+  m_Layer: 0
+  m_Name: PowerUpBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7498698138350115134
+--- !u!4 &8628749360342286300
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498698138350115130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9253254, y: 1.27, z: -0.64}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 4747955141196533199}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.79618144, y: 0.2677721, z: -1.4864302}
+  m_LocalScale: {x: 119.28226, y: 119.28226, z: 119.28226}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7498698138350115133
+--- !u!33 &784892338678498794
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498698138350115130}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7498698138350115132
+  m_GameObject: {fileID: 4747955141196533199}
+  m_Mesh: {fileID: 4068373912626513877, guid: df5f9d33835fc9f47aba48baba52d49e, type: 3}
+--- !u!23 &6474194974892128531
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498698138350115130}
+  m_GameObject: {fileID: 4747955141196533199}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e2bf361d768f4749b3ef2463c55d353, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,52 +80,28 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &7498698138350115131
-CapsuleCollider:
+--- !u!65 &7778941734511386484
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498698138350115130}
+  m_GameObject: {fileID: 4747955141196533199}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3711243636239629644
+  serializedVersion: 2
+  m_Size: {x: 0.012802375, y: 0.011679577, z: 0.012471349}
+  m_Center: {x: 0.00041743522, y: 0.00004843635, z: 0.000052433297}
+--- !u!114 &2676833516766063759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498698138350115130}
+  m_GameObject: {fileID: 4747955141196533199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dfae9db9d222de4b8734ab33b3862fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 12dcade32bfc33d449da303e71a1fdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  energy: 100
-  baseSpeed: 3
-  boostSpeed: 10
-  movementModifier: 1
-  force: 100
-  rb: {fileID: -7067816637231111853}
---- !u!54 &-7067816637231111853
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498698138350115130}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0

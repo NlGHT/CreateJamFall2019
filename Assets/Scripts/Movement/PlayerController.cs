@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
         [SerializeField] public int playerNumber;
 
         //HP and Energy
-        [SerializeField] float hp;
+        [SerializeField] public float hp;
         [SerializeField] float energy;
+        [SerializeField] public float damage;
 
         //Movement
         [SerializeField] float baseSpeed;
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerControls controls;
 
+    private bool isDead;
+
+    private Vector3 deathLocation;
 
 
     void Awake()
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
 
 
+<<<<<<< HEAD
             controls.Movement_p2.Turn.performed += ctx => turn = ctx.ReadValue<Vector2>();
 
             //Left Thumbstick
@@ -83,6 +88,13 @@ public class PlayerController : MonoBehaviour
             controls.Movement_p2.Boost.canceled += ctx => onBoost(false);
 
         }
+=======
+        //Left Trigger
+        controls.Movement.Boost.performed += ctx => Boost(true);
+        controls.Movement.Boost.canceled += ctx => Boost(false);
+        isDead = false;
+        deathLocation = new Vector3(8000, 8000, 8000);
+>>>>>>> 1d5f4f727ba00c5631e0358e0cb6008fa73c3c74
     }
 
     void onJump()
@@ -102,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public float TakeDamage(float damage)
     {
         hp -= damage;
         print(hp);
@@ -110,6 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             death();
         }
+        return hp;
     }
 
     void Update()
@@ -150,6 +163,7 @@ public class PlayerController : MonoBehaviour
 
     void death()
     {
-        Destroy(gameObject);
+        isDead = true;
+        this.transform.position = deathLocation;
     }
 }
