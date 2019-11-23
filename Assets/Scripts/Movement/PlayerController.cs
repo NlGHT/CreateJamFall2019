@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
 
     //Player Stats
         //HP and Energy
-        [SerializeField] float hp;
+        [SerializeField] public float hp;
         [SerializeField] float energy;
+        [SerializeField] public float damage;
 
         //Movement
         [SerializeField] float baseSpeed;

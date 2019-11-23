@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     public bool debugPathFinding;
     public GameObject targetObject;
     public float shortestNavDistance;
-    public GameObject powerUpObject;
+    public GameObject partPowerUp;
+    public GameObject towerPowerUp;
 
     public int hitpoints;
     public int damage;
@@ -122,13 +123,25 @@ public class EnemyController : MonoBehaviour
         }
         return distance;
     }
+
     private void death()
     {
         Transform powerUpSpawn = this.transform;
-        GameObject thePowerUp = Instantiate(powerUpObject) as GameObject;
-        thePowerUp.transform.position = powerUpSpawn.transform.position;
-        Destroy(gameObject);
+        int powerUpStyle = Random.Range(1, 6);
+        if(powerUpStyle <= 5)
+        {
+            GameObject thePowerUp = Instantiate(partPowerUp) as GameObject;
+            thePowerUp.transform.position = powerUpSpawn.transform.position;
+            Destroy(gameObject);
+        }
+        else if(powerUpStyle == 6)
+        {
+            GameObject thePowerUp = Instantiate(towerPowerUp) as GameObject;
+            thePowerUp.transform.position = powerUpSpawn.transform.position;
+            Destroy(gameObject);
+        }
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
