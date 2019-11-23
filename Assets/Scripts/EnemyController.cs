@@ -138,6 +138,10 @@ public class EnemyController : MonoBehaviour
     void TakeDamage(float damage)
     {
         health -= damage;
+        if (health <= 0)
+        {
+            death();
+        }
     }
 }
 
