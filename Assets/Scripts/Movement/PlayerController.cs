@@ -118,10 +118,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector3 m = new Vector3(-move.y, 0, move.x) * Time.deltaTime;
+        Vector3 m = new Vector3(-move.x, 0, -move.y) * Time.deltaTime;
         transform.Translate(m * speed, Space.World);
-
-        angle = Mathf.Atan2(turn.x, turn.y) * Mathf.Rad2Deg;
+       
+        angle = Mathf.Atan2(-turn.y, -turn.x) * Mathf.Rad2Deg;
         //float lAngle = Mathf.Lerp(angle, transform.rotation.y, t);
         transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
 

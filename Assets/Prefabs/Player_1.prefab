@@ -60,7 +60,7 @@ MonoBehaviour:
     type: 3}
   LilTimmyProjectile: {fileID: 7004266634089785653, guid: 7d6016b2ba6da294491f5804b2d9d0c0,
     type: 3}
-  LilTimmyRateOfFire: 10
+  LilTimmyRateOfFire: 400
   MachineGunTurret: {fileID: 3044185020459249699, guid: 1847dca6d6ca5284fbcb2ef2d6648652,
     type: 3}
   MachineGunProjectile: {fileID: 5523961312094716335, guid: b3143b4179c3d9d4d9ae5d1f93811770,
@@ -192,8 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfae9db9d222de4b8734ab33b3862fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: 0
   playerNumber: 1
-  hp: 100
+  hp: 1000000
   energy: 100
   damage: 2
   baseSpeed: 3
