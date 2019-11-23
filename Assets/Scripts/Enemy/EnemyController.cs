@@ -54,12 +54,12 @@ public class EnemyController : MonoBehaviour
             //print("Shortest nav distance: " + shortestNavDistance);
             if (Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)) > shortestNavDistance)
             {
-                print("Heyyyyyyyyyyyyyyy");
+                //print("Heyyyyyyyyyyyyyyy");
                 Agent.SetDestination(closestPlayer.transform.position);
             }
             else
             {
-                print("Enemy hitting target");
+                //print("Enemy hitting target");
                 Agent.ResetPath();
                 Agent.SetDestination(this.transform.position);
             }

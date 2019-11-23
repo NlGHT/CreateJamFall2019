@@ -65,29 +65,34 @@ public class GameManager : MonoBehaviour
             {
                 numEnemiesLeft -= 1;
 
+                int randomOffset = Random.Range(0, 1);
+                Vector3 offset = new Vector3(randomOffset, 0, randomOffset);
 
                 if (spawnsSploders)
                 {
                     int rand = Random.Range(0, spawnPoints.Count);
 
                     int rand2 = Random.Range(0, sploderRatio);
-                    if (rand2 == sploderRatio)
+                    if (rand2 >= sploderRatio -1)
                     {
                         GameObject enemy = Instantiate(SploderPrefab);
-                        enemy.transform.position = spawnPoints[rand].transform.position;
+                        enemy.transform.position = spawnPoints[rand].transform.position + offset;
                         activeEnemies.Add(enemy);
                     }
                     else
                     {
                         GameObject enemy = Instantiate(SpikerPrefab);
-                        enemy.transform.position = spawnPoints[rand].transform.position;
+                        enemy.transform.position = spawnPoints[rand].transform.position + offset;
                         activeEnemies.Add(enemy);
                     }
                 } else
                 {
                     int rand = Random.Range(0, spawnPoints.Count);
+
+                    
+
                     GameObject enemy = Instantiate(SpikerPrefab);
-                    enemy.transform.position = spawnPoints[rand].transform.position;
+                    enemy.transform.position = spawnPoints[rand].transform.position + offset;
                     activeEnemies.Add(enemy);
                 }
                 
