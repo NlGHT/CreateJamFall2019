@@ -12,7 +12,6 @@ public class EnemyController : MonoBehaviour
     public float shortestNavDistance;
     public GameObject powerUpObject;
 
-    public bool isDead;
     public int hitpoints;
     public int damage;
     public float health = 100;
@@ -62,10 +61,6 @@ public class EnemyController : MonoBehaviour
                 Agent.ResetPath();
                 //Agent.SetDestination(this.transform.position);
             }
-        }
-        if (isDead)
-        {
-            death();
         }
     }
 
