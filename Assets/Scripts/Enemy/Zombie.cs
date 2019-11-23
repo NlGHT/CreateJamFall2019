@@ -38,6 +38,7 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        print(other);
         GameObject otherGO = other.GetComponent<GameObject>();
         if (otherGO.layer == 9)
         {

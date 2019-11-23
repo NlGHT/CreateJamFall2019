@@ -28,18 +28,23 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            decayTime += Time.deltaTime;
+            decayTimeCurrent += Time.deltaTime;
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider other)
     {
-        print("Collision!");
-        if(col.gameObject.tag == "Enemy")
+        print(other);
+        GameObject GO = this.GetComponent<GameObject>();
+        Destroy(GO);
+
+        if (other.tag == "Enemy")
         {
             //Do this when projectile collides with enemy
-            EnemyController enemy = col.gameObject.GetComponent<EnemyController>();
+            print("Collision!");
+            EnemyController enemy = other.GetComponent<EnemyController>();
             enemy.TakeDamage(damage);
+            GameObject.Destroy(gameObject);
         }
 
         //Destroys projectile on collision.
