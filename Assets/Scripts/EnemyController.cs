@@ -10,6 +10,11 @@ public class EnemyController : MonoBehaviour
     public bool debugPathFinding;
     public GameObject targetObject;
     public float shortestNavDistance;
+    public GameObject powerUpObject;
+
+    public bool isDead;
+    public int hitpoints;
+    public int damage;
 
     NavMeshAgent Agent;
     private GameObject[] playerObjects;
@@ -52,6 +57,10 @@ public class EnemyController : MonoBehaviour
                 Agent.isStopped = true;
                 Agent.ResetPath();
             }
+        }
+        if (isDead)
+        {
+            death();
         }
     }
 
@@ -114,4 +123,13 @@ public class EnemyController : MonoBehaviour
         }
         return distance;
     }
+
+    private void death()
+    {
+        Transform powerUpSpawn = this.transform;
+        GameObject thePowerUp = Instantiate(powerUpObject) as GameObject;
+        thePowerUp.transform.position = powerUpSpawn.transform.position;
+        Destroy(gameObject);
+    }
 }
+
