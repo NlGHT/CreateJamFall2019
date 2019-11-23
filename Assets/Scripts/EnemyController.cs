@@ -25,7 +25,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("YOOOOOOOOOOOOOOOOO");
         if (debugPathFinding)
         {
             if (Input.GetMouseButtonDown(0))
