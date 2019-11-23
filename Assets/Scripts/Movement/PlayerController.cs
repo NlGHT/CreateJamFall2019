@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     float t;
 
     //Player Stats
+        [SerializeField] public int playerNumber;
+
         //HP and Energy
         [SerializeField] float hp;
         [SerializeField] float energy;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerControls controls;
 
 
+
     void Awake()
     {
         gameObject.tag = "Player";
@@ -37,28 +40,57 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //Right Thumbstick
         speed = baseSpeed * movementModifier;
-        controls.Movement.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.Movement.Move.canceled += ctx => move = Vector2.zero;
 
-        controls.Movement.Turn.performed += ctx => turn = ctx.ReadValue<Vector2>();
+        if (playerNumber == 1)
+        {
+            controls.Movement_p1.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
+            controls.Movement_p1.Move.canceled += ctx => move = Vector2.zero;
 
-        //Left Thumbstick
-        //See TurretController
 
-        //Button South (X On PS4 Controller)
-        controls.Movement.Jump.performed += ctx => Jump();
 
-        //Left Trigger
-        controls.Movement.Boost.performed += ctx => Boost(true);
-        controls.Movement.Boost.canceled += ctx => Boost(false);
+
+            controls.Movement_p1.Turn.performed += ctx => turn = ctx.ReadValue<Vector2>();
+
+            //Left Thumbstick
+            //See TurretController
+
+            //Button South (X On PS4 Controller)
+            controls.Movement_p1.Jump.performed += ctx => onJump();
+
+            //Left Trigger
+            controls.Movement_p1.Boost.performed += ctx => onBoost(true);
+            controls.Movement_p1.Boost.canceled += ctx => onBoost(false);
+
+        }
+        if (playerNumber == 2)
+        {
+            controls.Movement_p2.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
+            controls.Movement_p2.Move.canceled += ctx => move = Vector2.zero;
+
+
+
+
+            controls.Movement_p2.Turn.performed += ctx => turn = ctx.ReadValue<Vector2>();
+
+            //Left Thumbstick
+            //See TurretController
+
+            //Button South (X On PS4 Controller)
+            controls.Movement_p2.Jump.performed += ctx => onJump();
+
+            //Left Trigger
+            controls.Movement_p2.Boost.performed += ctx => onBoost(true);
+            controls.Movement_p2.Boost.canceled += ctx => onBoost(false);
+
+        }
     }
 
-    void Jump()
+    void onJump()
     {
         rb.AddForce(transform.up * force);
     }
 
-    void Boost(bool isBoosting)
+    void onBoost(bool isBoosting)
     {
         if (isBoosting)
         {
@@ -93,12 +125,27 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-        controls.Movement.Enable();
+        if(playerNumber == 1)
+        {
+            controls.Movement_p1.Enable();
+        }
+        if (playerNumber == 2)
+        {
+            controls.Movement_p2.Enable();
+        }
+
     }
 
     void OnDisable()
     {
-        controls.Movement.Disable();
+        if (playerNumber == 1)
+        {
+            controls.Movement_p1.Disable();
+        }
+        if (playerNumber == 2)
+        {
+            controls.Movement_p2.Disable();
+        }
     }
 
     void death()

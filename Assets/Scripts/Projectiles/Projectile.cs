@@ -5,21 +5,15 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float projectileSpeed;
-    [SerializeField] Rigidbody rb;
     [SerializeField] float decayTime;
     [SerializeField] float damage;
     float decayTimeCurrent;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        rb.transform.Translate(rb.transform.forward * projectileSpeed * Time.deltaTime);
+
+        gameObject.transform.Translate(gameObject.transform.forward * projectileSpeed * Time.deltaTime);
 
         if(decayTimeCurrent >= decayTime)
         {
@@ -32,23 +26,22 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        //Destroy(gameObject);
         print(other);
-        GameObject GO = this.GetComponent<GameObject>();
-        Destroy(GO);
+        GameObject gObj = other.gameObject;
 
         if (other.tag == "Enemy")
         {
             //Do this when projectile collides with enemy
             print("Collision!");
-            EnemyController enemy = other.GetComponent<EnemyController>();
+            EnemyController enemy = gObj.GetComponent<EnemyController>();
             enemy.TakeDamage(damage);
-            GameObject.Destroy(gameObject);
+            Destroy(gameObject);
         }
 
-        //Destroys projectile on collision.
-        Destroy(gameObject);
-        
+        //Destroys projectile on collision
+        Destroy(this.gameObject);
     }
 }

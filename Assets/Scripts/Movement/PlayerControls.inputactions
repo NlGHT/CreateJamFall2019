@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Movement_p1",
             "id": "a80aade1-e1e1-49e9-a017-d1393d738c46",
             "actions": [
                 {
@@ -58,7 +58,7 @@
                 {
                     "name": "",
                     "id": "62798196-12b5-465a-b923-3feea5d4228d",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -69,7 +69,7 @@
                 {
                     "name": "",
                     "id": "457b9d0f-041d-4969-b8ea-ff6f3f2bc5b1",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<DualShockGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -80,7 +80,7 @@
                 {
                     "name": "",
                     "id": "aa7c3cdf-c6d2-4e70-a092-25559fa0623f",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -91,7 +91,7 @@
                 {
                     "name": "",
                     "id": "6f7bfb90-69bb-4f58-8ba4-4036bf90dfc1",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -102,7 +102,7 @@
                 {
                     "name": "",
                     "id": "94fe4a54-da51-4a99-86f7-a54907b598b3",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<DualShockGamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -113,8 +113,130 @@
                 {
                     "name": "",
                     "id": "c0b7e004-7c1a-4803-82f8-942e7749a6ef",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<DualShockGamepad>/rightTrigger",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Movement_p2",
+            "id": "6f09d50c-d534-4afa-aadd-794ff4f89da4",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "431e008f-c39a-4cdf-abd3-5a119c3bdd23",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "514f5e43-9eac-4d9e-8d20-b2c96c7d2bc5",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "a7f560dd-b280-473c-aebc-ba32b1ef5785",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Turn",
+                    "type": "Button",
+                    "id": "e643907d-79dc-4544-b092-dca80b576578",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Boost",
+                    "type": "Button",
+                    "id": "9b413cd0-ab57-4362-95d3-9843b8cc224f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "9934b976-fedc-431d-a5ab-35cad88e3058",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d75ce641-ffe1-4996-bd22-e858fc5a1cfd",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29028f8c-b162-4970-8f48-f4e06e8375be",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa9cc9fc-156e-4232-85b3-ec9aa7a19c27",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec080568-b994-48f2-a9e4-87fdffe1a825",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "117b0870-f201-4733-ad25-c7743887c4a8",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8613a46b-b367-45b0-a0f4-1ca7d37013f7",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",

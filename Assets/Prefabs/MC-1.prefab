@@ -308,6 +308,7 @@ MonoBehaviour:
   cannonPoint: {fileID: 6055977558210269408}
   projectile: {fileID: 5026424523680797699, guid: 774e6a3ffdb6d91409cf41ca63d83429,
     type: 3}
+  rateOfFire: 60
 --- !u!65 &2167602760859408956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -482,8 +483,8 @@ GameObject:
   - component: {fileID: 2463009681304816179}
   - component: {fileID: 8078273292474542552}
   - component: {fileID: 2050521294664908783}
-  - component: {fileID: 8251636216516719178}
   - component: {fileID: 5055274396607160619}
+  - component: {fileID: 8251636216516719178}
   m_Layer: 0
   m_Name: MC-1
   m_TagString: Player
@@ -499,7 +500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5042693678213937787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2432782662123453211}
@@ -536,25 +537,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1.2530828, z: 4.4746737}
   m_Center: {x: 0, y: 0.6265414, z: -0.23733735}
---- !u!114 &8251636216516719178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042693678213937787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dfae9db9d222de4b8734ab33b3862fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  energy: 100
-  baseSpeed: 3
-  boostSpeed: 10
-  movementModifier: 1
-  force: 100
-  rb: {fileID: 8078273292474542552}
 --- !u!114 &5055274396607160619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,12 +563,67 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: ebef53f0-6733-4c76-bc8c-d069be6906f7
+    m_ActionName: Movement/Move[/DualShock4GamepadHID/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 681d3446-4c47-49df-905b-62b35f5ece17
+    m_ActionName: Movement/Aim[/DualShock4GamepadHID/rightStick,/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: bc5882b0-a533-429f-9cf9-9ea7cf45187a
+    m_ActionName: Movement/Jump[/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: c5f3ad9f-0f81-47d4-b643-dbf4721dd483
+    m_ActionName: Movement/Turn[/DualShock4GamepadHID/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: a4d756f6-6985-450b-be82-7aa3d264379a
+    m_ActionName: Movement/Boost[/DualShock4GamepadHID/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 9a71a508-a1f1-4235-942d-f1f122685f69
+    m_ActionName: Movement/Shoot[/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8251636216516719178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042693678213937787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfae9db9d222de4b8734ab33b3862fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  energy: 100
+  baseSpeed: 3
+  boostSpeed: 10
+  movementModifier: 1
+  force: 100
+  rb: {fileID: 8078273292474542552}
 --- !u!1 &5158325513660774534
 GameObject:
   m_ObjectHideFlags: 0
