@@ -56,17 +56,14 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-<<<<<<< HEAD
         print(other);
-=======
-        print("Left trigger");
->>>>>>> Enemies will do damage over time to player and kill them
-        GameObject otherGO = other.GetComponent<GameObject>();
-        if (otherGO.layer == 9)
+        GameObject otherGO = other.gameObject;
+        if (otherGO.tag == "Player")
         {
             //Player
             touchingPlayer = false;
             playerTouching = null;
+            pc = null;
         }
     }
 }
