@@ -77,9 +77,9 @@ public class SuicideBomber : MonoBehaviour
         if (targetFound)
         {
             GameObject otherGO = other.gameObject;
-            //print(otherGO);
             if (otherGO != null)
             {
+                print(otherGO);
                 if (otherGO.tag == "Player")
                 {
                     explode();

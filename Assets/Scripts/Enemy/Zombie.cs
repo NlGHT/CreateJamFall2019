@@ -52,7 +52,6 @@ public class Zombie : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         GameObject otherGO = other.gameObject;
-        print(otherGO);
         if (otherGO != null)
         {
             if (otherGO.tag == "Player")
