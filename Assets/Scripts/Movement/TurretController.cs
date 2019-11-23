@@ -96,7 +96,7 @@ public class TurretController : MonoBehaviour
             controls.Movement_p1.Shoot.performed += ctx => isShooting = true;
             controls.Movement_p1.Shoot.canceled += ctx => isShooting = false;
 
-            controls.Movement_p1.ChangeGun.performed += ctx => ChangeTurret(2);
+            controls.Movement_p1.ChangeGun.performed += ctx => ChangeTurret(1);
 
         }
         if (playerNumber == 2)
