@@ -61,12 +61,16 @@ public class SuicideBomber : MonoBehaviour
 
     private void searchAroundForTarget()
     {
-        float distanceToPlayer = Vector3.Distance(this.transform.position, closestObject.transform.position);
-        //print(distanceToPlayer);
-        if (distanceToPlayer < searchRadius)
+        if (closestObject)
         {
-            targetFound = true;
+            float distanceToPlayer = Vector3.Distance(this.transform.position, closestObject.transform.position);
+            //print(distanceToPlayer);
+            if (distanceToPlayer < searchRadius)
+            {
+                targetFound = true;
+            }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other) {
