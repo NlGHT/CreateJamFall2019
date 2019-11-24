@@ -12,12 +12,13 @@ public class EnemyController : MonoBehaviour
     public float shortestNavDistance;
     public GameObject partPowerUp;
     public GameObject towerPowerUp;
+    public float navInitSpeed = 3.5f;
 
     public int hitpoints;
     public int damage;
     public float health = 100;
 
-    NavMeshAgent Agent;
+    public NavMeshAgent Agent;
     public GameObject[] playerObjects;
 
     public GameObject closestPlayer;
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
         playerObjects = getPlayerObjects();
         closestPlayer = getClosestPlayerObject(playerObjects);
         Agent.SetDestination(closestPlayer.transform.position);
+        Agent.speed = navInitSpeed;
     }
 
     // Update is called once per frame
@@ -50,16 +52,16 @@ public class EnemyController : MonoBehaviour
         {
             closestPlayer = getClosestPlayerObject(playerObjects);
             //print("Closest player: " + closestPlayer);
-            print("Navmesh distance: " + Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
+            //print("Navmesh distance: " + Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
             //print("Shortest nav distance: " + shortestNavDistance);
-            if (Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)) > shortestNavDistance)
+            if (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position) > shortestNavDistance)
             {
                 //print("Heyyyyyyyyyyyyyyy");
                 Agent.SetDestination(closestPlayer.transform.position);
             }
             else
             {
-                //print("Enemy hitting target");
+                print(gameObject + "Enemy outside target");
                 Agent.ResetPath();
                 Agent.SetDestination(this.transform.position);
             }
@@ -73,22 +75,47 @@ public class EnemyController : MonoBehaviour
 
     public GameObject getClosestPlayerObject(GameObject[] playerObjects)
     {
-        float distance = -1;
         GameObject closest = playerObjects[0];
+        bool bothAlive = true;
         foreach (GameObject player in playerObjects)
         {
-            if (distance < 0)
+            if (GetDistanceNavMesh(this.transform.position, player.transform.position) == -1)
             {
-                distance = GetDistanceNavMesh(this.transform.position, player.transform.position);
-                closest = player;
-            } else
+                bothAlive = false;
+                break;
+            }
+        }
+        print(bothAlive);
+        if (bothAlive)
+        {
+            float distance = -1;
+            foreach (GameObject player in playerObjects)
             {
-                float tempDistance = GetDistanceNavMesh(this.transform.position, player.transform.position);
-                if (tempDistance < distance)
+                if (distance < 0)
                 {
+                    distance = GetDistanceNavMesh(this.transform.position, player.transform.position);
                     closest = player;
-                    distance = tempDistance;
                 }
+                else
+                {
+                    float tempDistance = GetDistanceNavMesh(this.transform.position, player.transform.position);
+                    if (tempDistance < distance)
+                    {
+                        closest = player;
+                        distance = tempDistance;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (GetDistanceNavMesh(this.transform.position, playerObjects[0].transform.position) == -1)
+            {
+                closest = playerObjects[1];
+            }
+            else if (GetDistanceNavMesh(this.transform.position, playerObjects[1].transform.position) == -1)
+            {
+                closest = playerObjects[0];
             }
         }
         return closest;
@@ -115,7 +142,7 @@ public class EnemyController : MonoBehaviour
         return lng;
     }
 
-    private static float GetDistanceNavMesh(Vector3 start, Vector3 end)
+    public static float GetDistanceNavMesh(Vector3 start, Vector3 end)
     {
         float distance = -1;
         NavMeshPath path = new NavMeshPath();
@@ -146,7 +173,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        print("Taking damage!");
+        print("Enemy taking damage!");
         health -= damage;
         if (health <= 0)
         {
