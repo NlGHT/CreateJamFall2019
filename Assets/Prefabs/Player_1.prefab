@@ -499,6 +499,8 @@ MonoBehaviour:
   movementModifier: 1
   force: 250
   rb: {fileID: 6617280019269779200}
+  idleSound: {fileID: 1828729655542885197}
+  movingSound: {fileID: 3688535362173489120}
   respawnTime: 5
 --- !u!82 &1828729655542885197
 AudioSource:

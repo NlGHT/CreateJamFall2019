@@ -61,7 +61,11 @@ public class PlayerController : MonoBehaviour
         if (playerNumber == 1)
         {
             controls.Movement_p1.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
+            controls.Movement_p1.Move.performed += ctx => goMovingSound();
+
             controls.Movement_p1.Move.canceled += ctx => move = Vector2.zero;
+            controls.Movement_p1.Move.canceled += ctx => goIdleSound();
+
             controls.Movement_p1.Turn.performed += ctx => turn = ctx.ReadValue<Vector2>();
 
             //Left Thumbstick
@@ -98,6 +102,10 @@ public class PlayerController : MonoBehaviour
         deathLocation = new Vector3(8000, 8000, 8000);
         respawnCountdown = respawnTime;
         maxHP = hp;
+
+        //Sound stuff
+        idleSound.loop = true;
+        movingSound.loop = true;
         idleSound.Play();
     }
 
@@ -197,5 +205,17 @@ public class PlayerController : MonoBehaviour
         transform.position = spawnLocation;
         hp = maxHP;
         isDead = false;
+    }
+
+    private void goMovingSound()
+    {
+        idleSound.Stop();
+        movingSound.Play();
+    }
+
+    private void goIdleSound()
+    {
+        movingSound.Stop();
+        idleSound.Play();
     }
 }
