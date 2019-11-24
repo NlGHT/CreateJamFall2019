@@ -206,7 +206,7 @@ public class TurretController : MonoBehaviour
 
     void OnEnable()
     {
-        ChangeTurret(0);
+        ChangeTurret(1);
         if (playerNumber == 1)
         {
             controls.Movement_p1.Enable();

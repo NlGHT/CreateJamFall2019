@@ -145,7 +145,7 @@ MonoBehaviour:
   rateOfFire: 100
   playerNumber: 1
   TurretOrigin: {fileID: 5830171828174083209}
-  StarterTurret: {fileID: 2243168836676253611, guid: 9f9b29f5e120a044e8acd501f9c073ed,
+  StarterTurret: {fileID: 4836420025514564203, guid: c186275526ad72d4b9cbb96a9f3569ab,
     type: 3}
   StarterProjectile: {fileID: 3020598463565056270, guid: 18635f434312f7e4caec3cb67cddeb83,
     type: 3}
