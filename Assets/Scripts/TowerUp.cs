@@ -19,6 +19,11 @@ public class TowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        PlayerController playerScript = other.GetComponent<PlayerController>();
+        playerScript.points += 1;
+        playerScript.damage = playerScript.damage + 10;
+        playerScript.hp = playerScript.hp + 10;
+
         int r = Random.Range(0, 2);
         other.gameObject.GetComponentInChildren<TurretController>().ChangeTurret(r);
         GameObject otherGO = other.gameObject;
