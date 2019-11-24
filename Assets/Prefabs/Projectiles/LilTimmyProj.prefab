@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6275514915152353613}
   m_Layer: 0
   m_Name: LilTimmyProj
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04681485, y: 0.052777328, z: 0.01}
-  m_Center: {x: -0.0043753423, y: 0.021388663, z: 0}
+  m_Size: {x: 0.04681485, y: 9.923972, z: 0.01}
+  m_Center: {x: -0.0043753423, y: 4.9380183, z: 0}
 --- !u!96 &6275514915152353613
 TrailRenderer:
   serializedVersion: 2

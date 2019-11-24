@@ -57,7 +57,15 @@ public class TurretController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             ActiveTurret.transform.parent = transform;
             ActiveTurret.transform.position = transform.position;
-            cannonPoint = GameObject.FindGameObjectWithTag("StarterPP");
+            if (playerNumber == 1)
+            {
+                cannonPoint = GameObject.FindGameObjectWithTag("StarterPP");
+            }
+            if (playerNumber == 2)
+            {
+                cannonPoint = GameObject.FindGameObjectWithTag("StarterPP2");
+            }
+
 
         }
         if (turretID == 1 && iActiveTurret != 1)
@@ -72,7 +80,14 @@ public class TurretController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             ActiveTurret.transform.parent = transform;
             ActiveTurret.transform.position = transform.position;
-            cannonPoint = GameObject.FindGameObjectWithTag("LilTimmyPP");
+            if (playerNumber == 1)
+            {
+                cannonPoint = GameObject.FindGameObjectWithTag("LilTimmyPP");
+            }
+            if (playerNumber == 2)
+            {
+                cannonPoint = GameObject.FindGameObjectWithTag("LilTimmyPP2");
+            }
 
         }
         if (turretID == 2)
@@ -87,7 +102,14 @@ public class TurretController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             ActiveTurret.transform.parent = transform;
             ActiveTurret.transform.position = transform.position;
-            cannonPoint = GameObject.FindGameObjectWithTag("MGPP");
+            if (playerNumber == 1)
+            {
+                cannonPoint = GameObject.FindGameObjectWithTag("MGPP");
+            }
+            if (playerNumber == 2)
+            {
+                cannonPoint = GameObject.FindGameObjectWithTag("MGPP2");
+            }
         }
     }
 
@@ -105,7 +127,6 @@ public class TurretController : MonoBehaviour
             controls.Movement_p1.Shoot.performed += ctx => isShooting = true;
             controls.Movement_p1.Shoot.canceled += ctx => isShooting = false;
 
-            controls.Movement_p1.ChangeGun.performed += ctx => ChangeTurret(1);
 
         }
         if (playerNumber == 2)
@@ -161,6 +182,7 @@ public class TurretController : MonoBehaviour
     void Shoot()
     {
         GameObject p = Instantiate(projectile) as GameObject;
+        p.transform.parent = transform.parent;
         p.transform.position = cannonPoint.transform.position;
         p.transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle));
         hasShot = true;

@@ -36,13 +36,13 @@ public class Projectile : MonoBehaviour
             print("Collision!");
             EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
             enemy.TakeDamage(damage);
-        }
-        if (isExplosive)
-        {
-            GameObject boom = Instantiate(explosion);
-            boom.transform.position = transform.position;
+            if (isExplosive)
+            {
+                GameObject boom = Instantiate(explosion);
+                boom.transform.position = transform.position;
+            }
+            Destroy(this.gameObject);
         }
         //Destroys projectile on collision
-        Destroy(this.gameObject);
     }
 }
