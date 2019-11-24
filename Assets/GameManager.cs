@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         timer -= Time.deltaTime;
 
-        if (fl.getPlayerCount() == 2) // Check if nboth players are in the goal
+        if (fl.getPlayerCount() == 1) // Check if nboth players are in the goal
         {
             nextScene();
         }
