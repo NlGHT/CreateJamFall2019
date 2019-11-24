@@ -76,7 +76,11 @@ public class UIManager : MonoBehaviour
             ti1 = player1.GetComponentInChildren<TurretInfo>();
             hp1Text.text = "" + pc1.hp;
             points1Text.text = "" + pc1.points;
-            turret1Text.text = "" + ti1.getTurretName();
+            if (ti1)
+            {
+                turret1Text.text = "" + ti1.getTurretName();
+            }
+            
             stam1Text.text = "" + pc1.energy;
         }
         if (player2)
@@ -84,7 +88,11 @@ public class UIManager : MonoBehaviour
             ti2 = player2.GetComponentInChildren<TurretInfo>();
             hp2Text.text = "" + pc2.hp;
             points2Text.text = "" + pc2.points;
-            turret2Text.text = "" + ti2.getTurretName();
+            if (ti2)
+            {
+                turret2Text.text = "" + ti2.getTurretName();
+            }
+            
             stam2Text.text = "" + pc2.energy;
         }
         

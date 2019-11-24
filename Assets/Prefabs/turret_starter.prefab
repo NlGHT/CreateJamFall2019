@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2988718847634605496}
   - component: {fileID: 6062136795037548430}
   - component: {fileID: 512706810281608055}
-  - component: {fileID: 8625759361404187870}
+  - component: {fileID: 5859304474354909815}
   m_Layer: 0
   m_Name: turret_starter
   m_TagString: Untagged
@@ -82,6 +82,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5859304474354909815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243168836676253611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc97c136ad8d8d0419d0dd465647bb45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Starter turret
 --- !u!1 &7035933089198716251
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5984435558780459900}
-  - component: {fileID: 1037667204019951964}
+  - component: {fileID: 8625759361404187870}
   m_Layer: 0
   m_Name: ProjectilePoint
   m_TagString: StarterPP
@@ -113,7 +126,6 @@ Transform:
   m_Father: {fileID: 2988718847634605496}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1037667204019951964
 --- !u!114 &8625759361404187870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,13 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0432eb0532da64498c834810386f981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameObject: {fileID: 2243168836676253611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc97c136ad8d8d0419d0dd465647bb45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretName: Starter turret
 --- !u!1001 &7782426015325881138
 PrefabInstance:
   m_ObjectHideFlags: 0
