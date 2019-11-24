@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 100
   decayTime: 2
-  damage: 5
+  damage: 10
   isExplosive: 0
   explosion: {fileID: 0}
 --- !u!65 &1776165692196590072

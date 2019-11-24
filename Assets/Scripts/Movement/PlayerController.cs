@@ -107,7 +107,11 @@ public class PlayerController : MonoBehaviour
         maxHP = hp;
 
         //Sound stuff
-        idleSound.loop = true;
+        if (idleSound)
+        {
+            idleSound.loop = true;
+        }
+        
         movingSound.loop = true;
         idleSound.Play();
     }
