@@ -166,8 +166,7 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject, 0.1f);
-            GameObject gObj = Instantiate<GameObject>(towerPowerUp);
-            gObj.transform.position = transform.position;
+            Instantiate(towerPowerUp);
         }
     }
 }
