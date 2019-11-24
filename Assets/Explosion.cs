@@ -27,7 +27,7 @@ public class Explosion : MonoBehaviour
             for (int i = 0; i < collidingBodies.Count; i++)
             {
                 //Vector3 dir = collidingBodies[i].transform.position - gameObject.transform.position;
-                collidingBodies[i].AddExplosionForce(force, transform.position, radius);
+                collidingBodies[i].AddExplosionForce(1, transform.position, radius);
                 collidingBodies[i].gameObject.GetComponent<EnemyController>().TakeDamage(damage);
             }
         }
