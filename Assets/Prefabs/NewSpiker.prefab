@@ -189,7 +189,7 @@ MonoBehaviour:
     type: 3}
   navInitSpeed: 3.5
   hitpoints: 0
-  damage: 0
+  damage: 10
   health: 100
   Agent: {fileID: 0}
   playerObjects: []
