@@ -10,8 +10,8 @@ public class EnemyController : MonoBehaviour
     public bool debugPathFinding;
     public GameObject targetObject;
     public float shortestNavDistance;
-    public GameObject partPowerUp;
-    public GameObject towerPowerUp;
+    [SerializeField] GameObject partPowerUp;
+    [SerializeField] GameObject towerPowerUp;
     public float navInitSpeed = 3.5f;
 
     public int hitpoints;
@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        killCheck();
         if (debugPathFinding)
         {
             if (Input.GetMouseButtonDown(0))
@@ -153,31 +154,20 @@ public class EnemyController : MonoBehaviour
         return distance;
     }
 
-    private void death()
-    {
-        Transform powerUpSpawn = this.transform;
-        int powerUpStyle = Random.Range(1, 6);
-        if(powerUpStyle <= 5)
-        {
-            GameObject thePowerUp = Instantiate(partPowerUp) as GameObject;
-            thePowerUp.transform.position = powerUpSpawn.transform.position;
-            Destroy(gameObject);
-        }
-        else if(powerUpStyle == 6)
-        {
-            GameObject thePowerUp = Instantiate(towerPowerUp) as GameObject;
-            thePowerUp.transform.position = powerUpSpawn.transform.position;
-            Destroy(gameObject);
-        }
-    }
 
     public void TakeDamage(float damage)
     {
         //print("Enemy taking damage!");
         health -= damage;
+    }
+
+    public void killCheck()
+    {
         if (health <= 0)
         {
-            death();
+            Destroy(gameObject, 0.1f);
+            GameObject gObj = Instantiate<GameObject>(towerPowerUp);
+            gObj.transform.position = transform.position;
         }
     }
 }
