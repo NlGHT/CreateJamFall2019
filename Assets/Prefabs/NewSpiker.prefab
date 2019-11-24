@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.24}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3, y: 2, z: 2.24}
+  m_Center: {x: 0, y: 0, z: 0.48}
 --- !u!195 &7327698205531439058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,9 +176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  debugPathFinding: 1
+  debugPathFinding: 0
   targetObject: {fileID: 0}
-  shortestNavDistance: 0
+  shortestNavDistance: 1
   partPowerUp: {fileID: 0}
   towerPowerUp: {fileID: 0}
   hitpoints: 0

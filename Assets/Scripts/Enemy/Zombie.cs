@@ -60,6 +60,7 @@ public class Zombie : MonoBehaviour
                 print("Touching player");
                 playerTouching = otherGO;
                 pc = playerTouching.GetComponent<PlayerController>();
+                pc.TakeDamage(damagePerTime);
                 touchingPlayer = true;
             }
         }
@@ -71,7 +72,7 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        print(other);
+        //print(other);
         GameObject otherGO = other.gameObject;
         if (otherGO.tag == "Player")
         {
