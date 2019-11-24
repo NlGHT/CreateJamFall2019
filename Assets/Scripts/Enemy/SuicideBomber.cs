@@ -39,6 +39,8 @@ public class SuicideBomber : MonoBehaviour
         {
             if (!targetFound)
             {
+                closestObject = enemyController.closestPlayer;
+                print(players.Length);
                 searchAroundForTarget();
 
                 /*
@@ -55,6 +57,10 @@ public class SuicideBomber : MonoBehaviour
             else
             {
                 attackTarget();
+                if (EnemyController.GetDistanceNavMesh(this.transform.position, closestObject.transform.position) > searchRadius)
+                {
+                    enemyController.Agent.speed = enemyController.navInitSpeed;
+                }
             }
         }
     }
@@ -64,7 +70,7 @@ public class SuicideBomber : MonoBehaviour
         if (closestObject)
         {
             float distanceToPlayer = Vector3.Distance(this.transform.position, closestObject.transform.position);
-            //print(distanceToPlayer);
+            print(distanceToPlayer);
             if (distanceToPlayer < searchRadius)
             {
                 targetFound = true;

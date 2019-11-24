@@ -57,7 +57,7 @@ public class Zombie : MonoBehaviour
             if (otherGO.tag == "Player")
             {
                 //Player
-                print("Touching player");
+                //print("Touching player");
                 playerTouching = otherGO;
                 pc = playerTouching.GetComponent<PlayerController>();
                 pc.TakeDamage(damagePerTime);

@@ -178,12 +178,14 @@ MonoBehaviour:
   cam: {fileID: 0}
   debugPathFinding: 0
   targetObject: {fileID: 0}
-  shortestNavDistance: 1
+  shortestNavDistance: 1.5
   partPowerUp: {fileID: 0}
   towerPowerUp: {fileID: 0}
+  navInitSpeed: 3.5
   hitpoints: 0
   damage: 0
   health: 100
+  Agent: {fileID: 0}
   playerObjects: []
   closestPlayer: {fileID: 0}
 --- !u!1 &3990095386320090482

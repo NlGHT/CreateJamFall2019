@@ -25,8 +25,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9bf5145eb61a76292128ec79d9575d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchRadius: 20
-  speedIncreaseSight: 200
+  searchRadius: 15
+  speedIncreaseSight: 400
 --- !u!1001 &3342303301241106014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,10 +44,20 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869788, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: shortestNavDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869786, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869786, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869785, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
