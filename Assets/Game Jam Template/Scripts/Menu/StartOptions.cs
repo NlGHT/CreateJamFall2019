@@ -62,9 +62,13 @@ public class StartOptions : MonoBehaviour {
 		//If changeScenes is false, call StartGameInScene
 		else 
 		{
-			//Call the StartGameInScene function to start game without loading a new scene.
-			StartGameInScene();
-		}
+            //Call the StartGameInScene function to start game without loading a new scene.
+            //StartGameInScene();
+
+            Invoke("LoadDelayed", menuSettingsData.menuFadeTime);
+
+            StartCoroutine(FadeCanvasGroupAlpha(0f, 1f, fadeOutImageCanvasGroup));
+        }
 
 	}
 
