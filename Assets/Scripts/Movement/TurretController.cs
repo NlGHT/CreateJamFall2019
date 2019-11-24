@@ -49,7 +49,7 @@ public class TurretController : MonoBehaviour
             
             iActiveTurret = 0;
             print("Changing Turret");
-            if(ActiveTurret != null) Destroy(ActiveTurret);
+            if(ActiveTurret != null) Destroy(ActiveTurret.gameObject);
             projectile = StarterProjectile;
             rateOfFire = starterRateOfFire;
 

@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
         if (fl.getPlayerCount() == 1) // Check if nboth players are in the goal
         {
+            Debug.Log("NEXT MAP");
             nextScene();
         }
 
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
     private void nextScene()
     {
 
-        SaveFile();
+        //SaveFile();
 
         SceneManager.LoadScene(currentSceneNumber += 1);
     }
