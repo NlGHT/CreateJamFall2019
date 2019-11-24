@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 100
   decayTime: 2
-  damage: 10
+  damage: 20
   isExplosive: 1
   explosion: {fileID: 1047006237534536883, guid: b66dd32533b07974193f1fd878691501,
     type: 3}
