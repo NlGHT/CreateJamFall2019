@@ -9,6 +9,10 @@ TagManager:
   - MGPP
   - StarterPP
   - PlayerSpawnPoint
+  - Projectile
+  - StarterPP2
+  - LilTimmyPP2
+  - MGPP2
   layers:
   - Default
   - TransparentFX

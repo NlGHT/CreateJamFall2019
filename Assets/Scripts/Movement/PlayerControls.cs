@@ -65,14 +65,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""ChangeGun"",
-                    ""type"": ""Button"",
-                    ""id"": ""47e601ef-2f2a-480c-b79b-032c54bc5a73"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -141,17 +133,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a6f42410-6846-4073-ac44-04418f0170f0"",
-                    ""path"": ""<DualShockGamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeGun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -161,9 +142,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""431e008f-c39a-4cdf-abd3-5a119c3bdd23"",
-                    ""expectedControlType"": ""Stick"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -205,7 +186,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""9934b976-fedc-431d-a5ab-35cad88e3058"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold""
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -288,7 +269,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Movement_p1_Turn = m_Movement_p1.FindAction("Turn", throwIfNotFound: true);
         m_Movement_p1_Boost = m_Movement_p1.FindAction("Boost", throwIfNotFound: true);
         m_Movement_p1_Shoot = m_Movement_p1.FindAction("Shoot", throwIfNotFound: true);
-        m_Movement_p1_ChangeGun = m_Movement_p1.FindAction("ChangeGun", throwIfNotFound: true);
         // Movement_p2
         m_Movement_p2 = asset.FindActionMap("Movement_p2", throwIfNotFound: true);
         m_Movement_p2_Move = m_Movement_p2.FindAction("Move", throwIfNotFound: true);
@@ -352,7 +332,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Movement_p1_Turn;
     private readonly InputAction m_Movement_p1_Boost;
     private readonly InputAction m_Movement_p1_Shoot;
-    private readonly InputAction m_Movement_p1_ChangeGun;
     public struct Movement_p1Actions
     {
         private @PlayerControls m_Wrapper;
@@ -363,7 +342,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Turn => m_Wrapper.m_Movement_p1_Turn;
         public InputAction @Boost => m_Wrapper.m_Movement_p1_Boost;
         public InputAction @Shoot => m_Wrapper.m_Movement_p1_Shoot;
-        public InputAction @ChangeGun => m_Wrapper.m_Movement_p1_ChangeGun;
         public InputActionMap Get() { return m_Wrapper.m_Movement_p1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,9 +369,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Shoot.started -= m_Wrapper.m_Movement_p1ActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_Movement_p1ActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_Movement_p1ActionsCallbackInterface.OnShoot;
-                @ChangeGun.started -= m_Wrapper.m_Movement_p1ActionsCallbackInterface.OnChangeGun;
-                @ChangeGun.performed -= m_Wrapper.m_Movement_p1ActionsCallbackInterface.OnChangeGun;
-                @ChangeGun.canceled -= m_Wrapper.m_Movement_p1ActionsCallbackInterface.OnChangeGun;
             }
             m_Wrapper.m_Movement_p1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -416,9 +391,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
-                @ChangeGun.started += instance.OnChangeGun;
-                @ChangeGun.performed += instance.OnChangeGun;
-                @ChangeGun.canceled += instance.OnChangeGun;
             }
         }
     }
@@ -504,7 +476,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnTurn(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnChangeGun(InputAction.CallbackContext context);
     }
     public interface IMovement_p2Actions
     {

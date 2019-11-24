@@ -52,14 +52,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "ChangeGun",
-                    "type": "Button",
-                    "id": "47e601ef-2f2a-480c-b79b-032c54bc5a73",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -128,17 +120,6 @@
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6f42410-6846-4073-ac44-04418f0170f0",
-                    "path": "<DualShockGamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeGun",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -148,9 +129,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "431e008f-c39a-4cdf-abd3-5a119c3bdd23",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -192,7 +173,7 @@
                     "id": "9934b976-fedc-431d-a5ab-35cad88e3058",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": ""
                 }
             ],
             "bindings": [

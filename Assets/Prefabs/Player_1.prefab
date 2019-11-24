@@ -145,21 +145,21 @@ MonoBehaviour:
   rateOfFire: 100
   playerNumber: 1
   TurretOrigin: {fileID: 5830171828174083209}
-  StarterTurret: {fileID: 2243168836676253611, guid: 9f9b29f5e120a044e8acd501f9c073ed,
+  StarterTurret: {fileID: 4836420025514564203, guid: c186275526ad72d4b9cbb96a9f3569ab,
     type: 3}
   StarterProjectile: {fileID: 3020598463565056270, guid: 18635f434312f7e4caec3cb67cddeb83,
     type: 3}
-  starterRateOfFire: 700
+  starterRateOfFire: 180
   LilTimmy: {fileID: 2949658052194279704, guid: c2fdf6abe5c8ed744b947fbea9d60388,
     type: 3}
   LilTimmyProjectile: {fileID: 3461829651480817229, guid: 2e2051a4e49d0df44884cd85c1fc3aa0,
     type: 3}
-  LilTimmyRateOfFire: 50
+  LilTimmyRateOfFire: 60
   MachineGunTurret: {fileID: 3044185020459249699, guid: 1847dca6d6ca5284fbcb2ef2d6648652,
     type: 3}
   MachineGunProjectile: {fileID: 3020598463565056270, guid: 18635f434312f7e4caec3cb67cddeb83,
     type: 3}
-  MachineGunRateOfFire: 1500
+  MachineGunRateOfFire: 500
   ActiveTurret: {fileID: 2243168836676253611, guid: 9f9b29f5e120a044e8acd501f9c073ed,
     type: 3}
   iActiveTurret: -1
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   playerNumber: 1
-  hp: 1000000
+  hp: 500
   maxHP: 0
   energy: 100
   damage: 2

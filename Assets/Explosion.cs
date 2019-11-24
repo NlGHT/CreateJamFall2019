@@ -44,6 +44,10 @@ public class Explosion : MonoBehaviour
         hasExploded = true;
         if(other != null)
         {
+
+            /*
+            other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+            Destroy(gameObject);
             /*
             if(transform.parent.tag == "LilTimmyPP")
             {
@@ -59,12 +63,11 @@ public class Explosion : MonoBehaviour
             if (other.gameObject.GetComponent<PlayerController>() != null)
             {
                 PlayerController pc = other.gameObject.GetComponent<PlayerController>();
-                pc.hp -= damage;
+                pc.TakeDamage(damage);
             }
         }
         //collidingBodies.Add(other.gameObject.GetComponent<Rigidbody>());
         //other.gameObject.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, radius);
-        Destroy(gameObject);
     }
 
 
