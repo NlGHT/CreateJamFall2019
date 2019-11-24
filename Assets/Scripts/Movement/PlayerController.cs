@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Audio
     [SerializeField] AudioSource idleSound;
     [SerializeField] AudioSource movingSound;
+    [SerializeField] bool movingSoundOn = false;
 
     // Respawn
     [SerializeField] float respawnTime;
@@ -211,19 +212,25 @@ public class PlayerController : MonoBehaviour
 
     private void goMovingSound()
     {
-        if (idleSound.isPlaying)
+        if (movingSoundOn)
         {
-            idleSound.Stop();
-            movingSound.Play();
+            if (idleSound.isPlaying)
+            {
+                idleSound.Stop();
+                movingSound.Play();
+            }
         }
     }
 
     private void goIdleSound()
     {
-        if (movingSound.isPlaying)
+        if (movingSoundOn)
         {
-            movingSound.Stop();
-            idleSound.Play();
+            if (movingSound.isPlaying)
+            {
+                movingSound.Stop();
+                idleSound.Play();
+            }
         }
     }
 }
