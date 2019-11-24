@@ -1456,6 +1456,13 @@ PrefabInstance:
         type: 3}
       propertyPath: waveMultiplier
       value: 1.001
+      propertyPath: waveMultiplier
+      value: 1.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070914148424466453, guid: 90c560df1b2ad954185dd800af352773,
+        type: 3}
+      propertyPath: numberOfWaves
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c560df1b2ad954185dd800af352773, type: 3}
