@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4856770631134078275}
   - component: {fileID: 4856770631134078273}
   - component: {fileID: 1631651095368166209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret_Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4856770631838623472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: P1_CannonPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,9 +124,9 @@ GameObject:
   - component: {fileID: 5213783350566244043}
   - component: {fileID: 6494760454946170171}
   - component: {fileID: 2691787014576485258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

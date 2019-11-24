@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5830171828174083208}
   - component: {fileID: 5830171828174083210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret_Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,9 @@ GameObject:
   - component: {fileID: 6617280019269779200}
   - component: {fileID: 5308723005736064240}
   - component: {fileID: 3951204213879636545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

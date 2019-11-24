@@ -36,7 +36,9 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        collidingBodies.Add(other.gameObject.GetComponent<Rigidbody>());
+        Destroy(other.gameObject);
+       // collidingBodies.Add(other.gameObject.GetComponent<Rigidbody>());
+        //other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
     }
 
 
