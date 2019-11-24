@@ -123,6 +123,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2871647052887535868, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869791, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: m_Name
@@ -203,21 +208,28 @@ PrefabInstance:
       propertyPath: m_Height
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8175162139340869788, guid: ce41fb89bfae7aafaa8e73761c2babd2,
-        type: 3}
-      propertyPath: shortestNavDistance
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871647052887535868, guid: ce41fb89bfae7aafaa8e73761c2babd2,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8175162139340869789, guid: ce41fb89bfae7aafaa8e73761c2babd2,
         type: 3}
       propertyPath: m_BaseOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869788, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: shortestNavDistance
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175162139340869788, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: partPowerUp
+      value: 
+      objectReference: {fileID: 1641386378535764234, guid: c19840cbeec386f4fad5e6c30996b91d,
+        type: 3}
+    - target: {fileID: 8175162139340869788, guid: ce41fb89bfae7aafaa8e73761c2babd2,
+        type: 3}
+      propertyPath: towerPowerUp
+      value: 
+      objectReference: {fileID: 2582992725308054389, guid: 7516ae45f3f13304d9b41092bfbe1710,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 8175162139340869787, guid: ce41fb89bfae7aafaa8e73761c2babd2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce41fb89bfae7aafaa8e73761c2babd2, type: 3}

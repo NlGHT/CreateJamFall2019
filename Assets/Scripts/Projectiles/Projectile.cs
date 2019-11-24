@@ -30,23 +30,17 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Destroy(gameObject);
-        print(other);
-        GameObject gObj = other.gameObject;
-
         if (other.tag == "Enemy")
         {
             //Do this when projectile collides with enemy
             print("Collision!");
-            EnemyController enemy = gObj.GetComponent<EnemyController>();
+            EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
             enemy.TakeDamage(damage);
-            Destroy(gameObject);
         }
         if (isExplosive)
         {
             GameObject boom = Instantiate(explosion);
             boom.transform.position = transform.position;
-            Destroy(gameObject);
         }
         //Destroys projectile on collision
         Destroy(this.gameObject);

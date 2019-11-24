@@ -55,7 +55,7 @@ MonoBehaviour:
     type: 3}
   StarterProjectile: {fileID: 3020598463565056270, guid: 18635f434312f7e4caec3cb67cddeb83,
     type: 3}
-  starterRateOfFire: 400
+  starterRateOfFire: 1000
   LilTimmy: {fileID: 2949658052194279704, guid: c2fdf6abe5c8ed744b947fbea9d60388,
     type: 3}
   LilTimmyProjectile: {fileID: 3461829651480817229, guid: 2e2051a4e49d0df44884cd85c1fc3aa0,
@@ -65,10 +65,10 @@ MonoBehaviour:
     type: 3}
   MachineGunProjectile: {fileID: 3020598463565056270, guid: 18635f434312f7e4caec3cb67cddeb83,
     type: 3}
-  MachineGunRateOfFire: 1000
+  MachineGunRateOfFire: 2000
   ActiveTurret: {fileID: 2243168836676253611, guid: 9f9b29f5e120a044e8acd501f9c073ed,
     type: 3}
-  iActiveTurret: 0
+  iActiveTurret: -1
 --- !u!1 &6442337197568589980
 GameObject:
   m_ObjectHideFlags: 0

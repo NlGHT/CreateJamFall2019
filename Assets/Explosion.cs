@@ -29,6 +29,7 @@ public class Explosion : MonoBehaviour
                 //Vector3 dir = collidingBodies[i].transform.position - gameObject.transform.position;
                 collidingBodies[i].AddExplosionForce(1, transform.position, radius);
                 collidingBodies[i].gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+                Destroy(gameObject);
             }
         }
     }
@@ -36,6 +37,7 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(gameObject);
         Destroy(other.gameObject);
        // collidingBodies.Add(other.gameObject.GetComponent<Rigidbody>());
         //other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);

@@ -40,7 +40,7 @@ public class SuicideBomber : MonoBehaviour
             if (!targetFound)
             {
                 closestObject = enemyController.closestPlayer;
-                print(players.Length);
+                //print(players.Length);
                 searchAroundForTarget();
 
                 /*
@@ -70,7 +70,7 @@ public class SuicideBomber : MonoBehaviour
         if (closestObject)
         {
             float distanceToPlayer = Vector3.Distance(this.transform.position, closestObject.transform.position);
-            print(distanceToPlayer);
+            //print(distanceToPlayer);
             if (distanceToPlayer < searchRadius)
             {
                 targetFound = true;
@@ -85,7 +85,7 @@ public class SuicideBomber : MonoBehaviour
             GameObject otherGO = other.gameObject;
             if (otherGO != null)
             {
-                print(otherGO);
+                //print(otherGO);
                 if (otherGO.tag == "Player")
                 {
                     explode();
@@ -101,7 +101,7 @@ public class SuicideBomber : MonoBehaviour
 
     private void attackTarget()
     {
-        print("RIP target");
+        //print("RIP target");
         agent.speed += speedIncreaseSight*Time.deltaTime;
     }
 }
