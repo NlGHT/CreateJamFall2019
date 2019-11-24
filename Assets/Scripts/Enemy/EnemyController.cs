@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                print(gameObject + "Enemy outside target");
+                //print(gameObject + "Enemy outside target");
                 Agent.ResetPath();
                 Agent.SetDestination(this.transform.position);
             }
@@ -157,7 +157,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        print("Enemy taking damage!");
+        //print("Enemy taking damage!");
         health -= damage;
     }
 
