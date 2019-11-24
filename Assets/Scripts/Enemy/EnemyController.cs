@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float shortestNavDistance;
     [SerializeField] GameObject partPowerUp;
     [SerializeField] GameObject towerPowerUp;
+    [SerializeField] GameObject explosion;
     public float navInitSpeed = 3.5f;
 
     public int hitpoints;
@@ -165,8 +166,21 @@ public class EnemyController : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject, 0.1f);
-            Instantiate(towerPowerUp);
+            int r = Random.Range(0, 6);
+            if (r <= 4)
+            {
+                GameObject gObj = Instantiate(partPowerUp);
+                gObj.transform.position = transform.position;
+
+            }
+            else if (r == 5)
+            {
+                GameObject gObj = Instantiate(towerPowerUp);
+                gObj.transform.position = transform.position;
+            }
+            GameObject boom = Instantiate(explosion);
+            boom.transform.position = transform.position;
+            Destroy(gameObject);
         }
     }
 }

@@ -142,6 +142,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(transform.position.y <= 0)
+        {
+            Vector3 v = new Vector3(0, 2, 0);
+            transform.position += v;
+        }
         Vector3 m = new Vector3(-move.x, 0, -move.y) * Time.deltaTime;
         transform.Translate(m * speed, Space.World);
        

@@ -21,7 +21,11 @@ public class Explosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!hasExploded)
+        if (hasExploded)
+        {
+            Destroy(gameObject);
+        }
+       /* if (!hasExploded)
         {
             hasExploded = true;
             for (int i = 0; i < collidingBodies.Count; i++)
@@ -31,16 +35,20 @@ public class Explosion : MonoBehaviour
                 collidingBodies[i].gameObject.GetComponent<EnemyController>().TakeDamage(damage);
                 Destroy(gameObject);
             }
-        }
+        }*/
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
+        hasExploded = true;
+        if(other != null)
+        {
+            other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+        }
+        //collidingBodies.Add(other.gameObject.GetComponent<Rigidbody>());
+        //other.gameObject.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, radius);
         Destroy(gameObject);
-        Destroy(other.gameObject);
-       // collidingBodies.Add(other.gameObject.GetComponent<Rigidbody>());
-        //other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
     }
 
 

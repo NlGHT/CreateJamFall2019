@@ -5,7 +5,7 @@ using UnityEngine;
 public class SuicideBomber : MonoBehaviour
 {
     EnemyController enemyController;
-
+    [SerializeField] GameObject explosion;
     public float searchRadius;
     public float speedIncreaseSight;
 
@@ -96,6 +96,8 @@ public class SuicideBomber : MonoBehaviour
 
     private void explode()
     {
+        GameObject boom = Instantiate(explosion);
+        boom.transform.position = transform.position;
         Destroy(gameObject);
     }
 
