@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 public class GameManager : MonoBehaviour
 {
 
@@ -133,7 +136,47 @@ public class GameManager : MonoBehaviour
 
     private void nextScene()
     {
+
+        SaveFile();
+
         SceneManager.LoadScene(currentSceneNumber += 1);
     }
+
+    public void SaveFile()
+    {
+        string destination = Application.persistentDataPath + "/save.dat";
+        FileStream file;
+
+        if (File.Exists(destination)) file = File.OpenWrite(destination);
+        else file = File.Create(destination);
+
+        UIManager um = GetComponent<UIManager>();
+
+        string points = "Player 1: " + um.points1 + "         Player 2: " + um.points2;
+
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(file, points);
+        file.Close();
+    }
+
+    public void LoadFile()
+    {
+        string destination = Application.persistentDataPath + "/save.dat";
+        FileStream file;
+
+        if (File.Exists(destination)) file = File.OpenRead(destination);
+        else
+        {
+            Debug.LogError("File not found");
+            return;
+        }
+
+        BinaryFormatter bf = new BinaryFormatter();
+        string scores = (string)bf.Deserialize(file);
+        file.Close();
+
+        Debug.Log(scores);
+    }
+
 
 }

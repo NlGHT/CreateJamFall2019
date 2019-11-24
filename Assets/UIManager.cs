@@ -56,31 +56,37 @@ public class UIManager : MonoBehaviour
         stam2Text = stam2.GetComponent<Text>();
 
 
-        pc1 = player1.GetComponent<PlayerController>();
-        pc2 = player2.GetComponent<PlayerController>();
+        if (player1)
+        {
+            pc1 = player1.GetComponent<PlayerController>();
+        }
 
-        
-
+        if (player2)
+        {
+            pc2 = player2.GetComponent<PlayerController>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
-        ti1 = player1.GetComponentInChildren<TurretInfo>();
-        ti2 = player2.GetComponentInChildren<TurretInfo>();
-
-        hp1Text.text = "" + pc1.hp;
-        points1Text.text = "" + pc1.points;
-        turret1Text.text = "" + ti1.getTurretName();
-        stam1Text.text = "" + pc1.energy;
-
-        hp2Text.text = "" + pc2.hp;
-        points2Text.text = "" + pc2.points;
-        turret2Text.text = "" + ti2.getTurretName();
-        stam2Text.text = "" + pc2.energy;
-
-
+        if (player1)
+        {
+            ti1 = player1.GetComponentInChildren<TurretInfo>();
+            hp1Text.text = "" + pc1.hp;
+            points1Text.text = "" + pc1.points;
+            turret1Text.text = "" + ti1.getTurretName();
+            stam1Text.text = "" + pc1.energy;
+        }
+        if (player2)
+        {
+            ti2 = player2.GetComponentInChildren<TurretInfo>();
+            hp2Text.text = "" + pc2.hp;
+            points2Text.text = "" + pc2.points;
+            turret2Text.text = "" + ti2.getTurretName();
+            stam2Text.text = "" + pc2.energy;
+        }
+        
     }
 }

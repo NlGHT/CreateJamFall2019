@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
         {
             closestPlayer = getClosestPlayerObject(playerObjects);
             //print("Closest player: " + closestPlayer);
-            //print("Navmesh distance: " + (GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
+            print("Navmesh distance: " + Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)));
             //print("Shortest nav distance: " + shortestNavDistance);
             if (Mathf.Abs(GetDistanceNavMesh(this.transform.position, closestPlayer.transform.position)) > shortestNavDistance)
             {
@@ -146,6 +146,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        print("Taking damage!");
         health -= damage;
         if (health <= 0)
         {
