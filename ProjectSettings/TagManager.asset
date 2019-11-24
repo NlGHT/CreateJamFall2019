@@ -8,6 +8,7 @@ TagManager:
   - LilTimmyPP
   - MGPP
   - StarterPP
+  - PlayerSpawnPoint
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
         //HP and Energy
         [SerializeField] public float hp;
+        // On awake maxHP is set to hp
+        [SerializeField] public float maxHP;
         [SerializeField] public float energy;
         [SerializeField] public float damage;
 
@@ -34,6 +36,10 @@ public class PlayerController : MonoBehaviour
     //Control objects
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerControls controls;
+
+    // Audio
+    [SerializeField] AudioSource idleSound;
+    [SerializeField] AudioSource movingSound;
 
     // Respawn
     [SerializeField] float respawnTime;
@@ -91,6 +97,8 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         deathLocation = new Vector3(8000, 8000, 8000);
         respawnCountdown = respawnTime;
+        maxHP = hp;
+        idleSound.Play();
     }
 
     void Jump()
@@ -130,6 +138,7 @@ public class PlayerController : MonoBehaviour
         //float lAngle = Mathf.Lerp(angle, transform.rotation.y, t);
         transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
 
+        // For respawns
         if (isDead)
         {
             if (respawnCountdown > 0)
@@ -139,7 +148,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 respawn();
-                isDead = false;
                 respawnCountdown = respawnTime;
             }
         }
@@ -172,14 +180,22 @@ public class PlayerController : MonoBehaviour
 
     void death()
     {
+        print("Teleported away!");
         isDead = true;
         this.transform.position = deathLocation;
+        if (idleSound.isPlaying)
+            idleSound.Stop();
+        if (movingSound.isPlaying)
+            movingSound.Stop();
     }
 
     void respawn()
     {
+        idleSound.Play();
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
         Vector3 spawnLocation = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
         transform.position = spawnLocation;
+        hp = maxHP;
+        isDead = false;
     }
 }

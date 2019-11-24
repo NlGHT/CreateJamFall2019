@@ -67,6 +67,9 @@ MonoBehaviour:
   MachineGunRateOfFire: 0
   ActiveTurret: {fileID: 0}
   iActiveTurret: 0
+  lilTimmySound: {fileID: 0}
+  machineGunSound: {fileID: 0}
+  startSound: {fileID: 0}
 --- !u!65 &1631651095368166209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -236,6 +239,7 @@ MonoBehaviour:
   points: 0
   playerNumber: 2
   hp: 100
+  maxHP: 0
   energy: 100
   damage: 2
   baseSpeed: 3
@@ -243,3 +247,4 @@ MonoBehaviour:
   movementModifier: 1
   force: 250
   rb: {fileID: 5213783350566244043}
+  respawnTime: 5
