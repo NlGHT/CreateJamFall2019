@@ -774,5 +774,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: Kings of the Kanyon!
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11402634, guid: 45616935e4fe10f48b62da1347801a16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 45616935e4fe10f48b62da1347801a16, type: 3}

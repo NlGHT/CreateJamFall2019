@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour
     {
         idleSound.Play();
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
-        Vector3 spawnLocation = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+        Vector3 spawnLocation = spawnPoints[Mathf.RoundToInt(Random.Range(0, spawnPoints.Length-1))].transform.position;
         transform.position = spawnLocation;
         hp = maxHP;
         isDead = false;

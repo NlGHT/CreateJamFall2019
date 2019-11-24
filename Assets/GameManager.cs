@@ -52,10 +52,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
         timer -= Time.deltaTime;
 
-        if (fl.getPlayerCount() == 2) // Check if nboth players are in the goal
+        if (fl.getPlayerCount() == 1) // Check if nboth players are in the goal
         {
+            Debug.Log("NEXT MAP");
             nextScene();
         }
 
@@ -137,7 +144,7 @@ public class GameManager : MonoBehaviour
     private void nextScene()
     {
 
-        SaveFile();
+        //SaveFile();
 
         SceneManager.LoadScene(currentSceneNumber += 1);
     }
