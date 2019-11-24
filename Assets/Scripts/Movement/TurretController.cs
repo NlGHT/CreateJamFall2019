@@ -37,10 +37,11 @@ public class TurretController : MonoBehaviour
     float angle;
     IEnumerator _shoot;
 
-    void ChangeTurret(int turretID)
+    public void ChangeTurret(int turretID)
     {
-        if(turretID == 0)
+        if(turretID == 0 && iActiveTurret != 0)
         {
+            
             iActiveTurret = 0;
             print("Changing Turret");
             if(ActiveTurret != null) Destroy(ActiveTurret);
@@ -48,12 +49,13 @@ public class TurretController : MonoBehaviour
             rateOfFire = starterRateOfFire;
 
             ActiveTurret = Instantiate(StarterTurret);
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             ActiveTurret.transform.parent = transform;
             ActiveTurret.transform.position = transform.position;
             cannonPoint = GameObject.FindGameObjectWithTag("StarterPP");
 
         }
-        if (turretID == 1)
+        if (turretID == 1 && iActiveTurret != 1)
         {
             iActiveTurret = 1;
             print("Changing Turret");
@@ -62,6 +64,7 @@ public class TurretController : MonoBehaviour
             rateOfFire = LilTimmyRateOfFire;
 
             ActiveTurret = Instantiate(LilTimmy);
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             ActiveTurret.transform.parent = transform;
             ActiveTurret.transform.position = transform.position;
             cannonPoint = GameObject.FindGameObjectWithTag("LilTimmyPP");
@@ -76,6 +79,7 @@ public class TurretController : MonoBehaviour
             rateOfFire = MachineGunRateOfFire;
 
             ActiveTurret = Instantiate(MachineGunTurret);
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             ActiveTurret.transform.parent = transform;
             ActiveTurret.transform.position = transform.position;
             cannonPoint = GameObject.FindGameObjectWithTag("MGPP");
@@ -119,7 +123,7 @@ public class TurretController : MonoBehaviour
     }
     void Update()
     {
-        angle = Mathf.Atan2(-rotate.y, -rotate.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(-rotate.x, rotate.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
 
 

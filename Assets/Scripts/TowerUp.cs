@@ -19,6 +19,8 @@ public class TowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        int r = Random.Range(0, 2);
+        other.gameObject.GetComponentInChildren<TurretController>().ChangeTurret(r);
         GameObject otherGO = other.gameObject;
         print(otherGO);
         Destroy(gameObject);

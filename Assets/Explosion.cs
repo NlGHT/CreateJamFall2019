@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour
     bool hasExploded = false;
     public float force = 1;
     public float radius = 1;
+    [SerializeField] float damage;
     
     public List<Rigidbody> collidingBodies;
 
@@ -27,6 +28,7 @@ public class Explosion : MonoBehaviour
             {
                 //Vector3 dir = collidingBodies[i].transform.position - gameObject.transform.position;
                 collidingBodies[i].AddExplosionForce(force, transform.position, radius);
+                collidingBodies[i].gameObject.GetComponent<EnemyController>().TakeDamage(damage);
             }
         }
     }

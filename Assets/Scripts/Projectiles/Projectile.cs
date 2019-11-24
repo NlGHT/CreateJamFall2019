@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] float decayTime;
     [SerializeField] float damage;
     float decayTimeCurrent;
+    [SerializeField] bool isExplosive;
+    [SerializeField] GameObject explosion;
 
     // Update is called once per frame
     void Update()
@@ -40,7 +42,12 @@ public class Projectile : MonoBehaviour
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
-
+        if (isExplosive)
+        {
+            GameObject boom = Instantiate(explosion);
+            boom.transform.position = transform.position;
+            Destroy(gameObject);
+        }
         //Destroys projectile on collision
         Destroy(this.gameObject);
     }

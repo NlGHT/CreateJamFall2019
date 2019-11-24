@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce1f45c42ada004e8c93732b7605d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
-  radius: 10
+  force: 1
+  radius: 1
+  damage: 1000
   collidingBodies: []
 --- !u!198 &1047006237534536881
 ParticleSystem:
