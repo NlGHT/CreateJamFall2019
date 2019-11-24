@@ -29,6 +29,11 @@ public class TurretController : MonoBehaviour
     [SerializeField] GameObject ActiveTurret;
 
     [SerializeField] int iActiveTurret;
+
+    [SerializeField] AudioSource lilTimmySound;
+    [SerializeField] AudioSource machineGunSound;
+    [SerializeField] AudioSource startSound;
+
     bool timePassed;
     float timeBetweenShots;
     bool hasShot;
@@ -159,6 +164,22 @@ public class TurretController : MonoBehaviour
         p.transform.position = cannonPoint.transform.position;
         p.transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle));
         hasShot = true;
+
+        switch (iActiveTurret)
+        {
+            case 0:
+                //Starter
+                startSound.Play();
+                break;
+            case 1:
+                //LilTimmy
+                lilTimmySound.Play();
+                break;
+            case 2:
+                //MachineGun
+                machineGunSound.Play();
+                break;
+        }
     }
 
     void OnEnable()
