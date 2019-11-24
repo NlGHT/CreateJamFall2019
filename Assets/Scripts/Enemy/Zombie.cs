@@ -32,8 +32,12 @@ public class Zombie : MonoBehaviour
             {
                 if (playerTouching != null)
                 {
-                    pc.TakeDamage(damagePerTime);
-                    timeCountdown = timePerDamage;
+                    if (pc != null)
+                    {
+                        pc.TakeDamage(damagePerTime);
+                        timeCountdown = timePerDamage;
+                    }
+                    
                     //print("Hurting player");
                 }
                 else
