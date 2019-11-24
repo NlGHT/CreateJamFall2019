@@ -74,26 +74,26 @@ public class UIManager : MonoBehaviour
         if (player1)
         {
             ti1 = player1.GetComponentInChildren<TurretInfo>();
-            hp1Text.text = "" + pc1.hp;
-            points1Text.text = "" + pc1.points;
+            hp1Text.text = "Hit Points: " + pc1.hp;
+            points1Text.text = "Points: " + pc1.points;
             if (ti1)
             {
-                turret1Text.text = "" + ti1.getTurretName();
+                turret1Text.text = "Turret: " + ti1.getTurretName();
             }
             
-            stam1Text.text = "" + pc1.energy;
+            stam1Text.text = "Energy: " + pc1.energy;
         }
         if (player2)
         {
             ti2 = player2.GetComponentInChildren<TurretInfo>();
-            hp2Text.text = "" + pc2.hp;
-            points2Text.text = "" + pc2.points;
+            hp2Text.text = "Hit Points: " + pc2.hp;
+            points2Text.text = "Points: " + pc2.points;
             if (ti2)
             {
-                turret2Text.text = "" + ti2.getTurretName();
+                turret2Text.text = "Turret: " + ti2.getTurretName();
             }
             
-            stam2Text.text = "" + pc2.energy;
+            stam2Text.text = "Energy: " + pc2.energy;
         }
         
     }
