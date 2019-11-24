@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerControls controls;
 
+    // Respawn
+    [SerializeField] float respawnTime;
+    private float respawnCountdown;
+
     private bool isDead;
 
     private Vector3 deathLocation;
@@ -86,6 +90,7 @@ public class PlayerController : MonoBehaviour
         //Left Trigger
         isDead = false;
         deathLocation = new Vector3(8000, 8000, 8000);
+        respawnCountdown = respawnTime;
     }
 
     void Jump()
@@ -125,6 +130,19 @@ public class PlayerController : MonoBehaviour
         //float lAngle = Mathf.Lerp(angle, transform.rotation.y, t);
         transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
 
+        if (isDead)
+        {
+            if (respawnCountdown > 0)
+            {
+                respawnCountdown -= Time.deltaTime;
+            }
+            else
+            {
+                respawn();
+                isDead = false;
+                respawnCountdown = respawnTime;
+            }
+        }
     }
 
     void OnEnable()
@@ -156,5 +174,12 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         this.transform.position = deathLocation;
+    }
+
+    void respawn()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
+        Vector3 spawnLocation = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+        transform.position = spawnLocation;
     }
 }
