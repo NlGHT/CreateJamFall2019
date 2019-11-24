@@ -209,13 +209,19 @@ public class PlayerController : MonoBehaviour
 
     private void goMovingSound()
     {
-        idleSound.Stop();
-        movingSound.Play();
+        if (idleSound.isPlaying)
+        {
+            idleSound.Stop();
+            movingSound.Play();
+        }
     }
 
     private void goIdleSound()
     {
-        movingSound.Stop();
-        idleSound.Play();
+        if (movingSound.isPlaying)
+        {
+            movingSound.Stop();
+            idleSound.Play();
+        }
     }
 }
