@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 0
   radius: 1
-  damage: 20
+  damage: 50
   collidingBodies: []
 --- !u!198 &1047006237534536881
 ParticleSystem:
