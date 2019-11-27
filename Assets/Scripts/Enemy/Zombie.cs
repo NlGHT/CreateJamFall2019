@@ -30,9 +30,9 @@ public class Zombie : MonoBehaviour
 
             if (timeCountdown <= 0)
             {
-                if (playerTouching != null)
+                if (playerTouching)
                 {
-                    if (pc != null)
+                    if (pc)
                     {
                         pc.TakeDamage(damagePerTime);
                         timeCountdown = timePerDamage;
@@ -58,7 +58,7 @@ public class Zombie : MonoBehaviour
         GameObject otherGO = other.gameObject;
         if (otherGO != null)
         {
-            if (otherGO.tag == "Player")
+            if (otherGO.CompareTag("Player"))
             {
                 //Player
                 //print("Touching player");
@@ -78,7 +78,7 @@ public class Zombie : MonoBehaviour
     {
         //print(other);
         GameObject otherGO = other.gameObject;
-        if (otherGO.tag == "Player")
+        if (otherGO.CompareTag("Player"))
         {
             //Player
             touchingPlayer = false;
